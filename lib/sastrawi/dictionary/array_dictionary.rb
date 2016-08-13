@@ -11,12 +11,12 @@ module Sastrawi
         puts word if words.include?(word)
       end
 
-      def count()
+      def count
         puts words.length
       end
 
-      def add_words(words)
-        # TODO: Add an array to current array.
+      def add_words(new_words = [])
+        words.concat(new_words)
       end
 
       def add(word)
