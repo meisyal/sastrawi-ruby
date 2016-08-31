@@ -1,8 +1,13 @@
+require 'filter/text_normalizer'
+
 module Sastrawi
   module Stemmer
     class Stemmer
-      def initialize
-        # TODO: Implement this method here.
+      attr_reader :dictionary, :visitor_provider
+
+      def initialize(dictionary)
+        @dictionary = dictionary
+        @visitor_provider = VisitorProviver.new
       end
 
       def get_dictionary
@@ -10,11 +15,22 @@ module Sastrawi
       end
 
       def stem(text)
-        # TODO: Implement this method here.
+        normalized_text = TextNormalizer.normalize_text(text)
+
+        words = normalize_text.split(' ')
+        stems = []
+
+        words.each { |w| stems.push(w) }
+
+        stems.join(' ')
       end
 
       def stem_word(word)
-        # TODO: Implement this method here.
+        if self.plural?(word)
+          self.stem_plural_word(word)
+        else
+          self.stem_singular_word(word)
+        end
       end
 
       def plural?(word)
