@@ -7,11 +7,11 @@ module Sastrawi
 
       def initialize(dictionary)
         @dictionary = dictionary
-        @visitor_provider = VisitorProviver.new
+        @visitor_provider = VisitorProvider.new
       end
 
       def get_dictionary
-        # TODO: Implement this method here.
+        @dictionary
       end
 
       def stem(text)
@@ -34,7 +34,13 @@ module Sastrawi
       end
 
       def plural?(word)
-        # TODO: Implement this method here.
+        match = /^(.*)-(ku|mu|nya|lah|kah|tah|pun)$/.match(word)
+
+        if match
+          match.captures[1].index('-') != -1
+        end
+
+        word.index('-') != -1
       end
 
       def stem_plural_word(word)
