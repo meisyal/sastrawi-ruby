@@ -44,7 +44,35 @@ module Sastrawi
       end
 
       def stem_plural_word(word)
-        # TODO: Implement this method here.
+        match_one = /^(.*)-(.*)$/.match(word)
+
+        unless match_one
+          word
+        end
+
+        words = [match_one.captures[1], match_one.captures[2]]
+
+        suffix = words[1]
+        suffixes = ['ku', 'mu', 'nya', 'lah', 'kah', 'tah', 'pun']
+        match_two = /^(.*)-(.*)$/.match(words[0])
+
+        if suffixes.include?(suffix) && match_two.include?(suffix)
+          words[0] = match_two.captures[1]
+          words[1] = match_two.captures[2] + '-' + suffix
+        end
+
+        root_first_word = self.stem_singular_word(words[0])
+        root_second_word = self.stem_singular_word(words[1])
+
+        unless self.dictionary.contains(words[1]) && root_second_word == words[1]
+          root_second_word = self.stem_singular_word('me' + words[1])
+        end
+
+        if root_first_word == root_second_word
+          root_first_word
+        else
+          word
+        end
       end
 
       def stem_singular_word(word)
