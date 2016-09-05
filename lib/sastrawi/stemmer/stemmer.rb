@@ -76,7 +76,10 @@ module Sastrawi
       end
 
       def stem_singular_word(word)
-        # TODO: Implement this method here.
+        context = Context.new(word, @dictionary, @visitor_provider)
+        context.execute
+
+        context.result
       end
     end
   end
