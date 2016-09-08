@@ -2,8 +2,14 @@ module Sastrawi
   module Stemmer
     module Context
       class Removal
-        def initialize
-          # TODO: Implement this method here.
+        attr_reader :visitor, :subject, :result, :removed_part, :affix_type
+
+        def initialize(visitor, subject, result, removed_part, affix_type)
+          @visitor = visitor
+          @subject = subject
+          @result = result
+          @removed_part = removed_part
+          @affix_type = affix_type
         end
       end
     end
