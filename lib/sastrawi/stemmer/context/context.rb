@@ -2,8 +2,13 @@ module Sastrawi
   module Stemmer
     module Context
       class Context
-        def initialize
-          # TODO: Implement this method here.
+        attr_reader :original_word, :current_word, :dictionary, :visitor_provider
+
+        def initialize(original_word, current_word, dictionary, visitor_provider)
+            @original_word = original_word
+            @current_word = current_word
+            @dictionary = dictionary
+            @visitor_provider = visitor_provider
         end
 
         def init_visitors
