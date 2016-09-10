@@ -2,7 +2,13 @@ module Sastrawi
   module Stemmer
     module Context
       class Context
-        attr_reader :original_word, :current_word, :dictionary, :visitor_provider
+        attr_accessor :original_word, :current_word, :dictionary, :visitor_provider
+
+        @@process_is_stopped = false
+        @@removal = []
+        @@visitors = []
+        @@suffix_visitors = []
+        @@prefix_visitors = []
 
         def initialize(original_word, current_word, dictionary, visitor_provider)
             @original_word = original_word
