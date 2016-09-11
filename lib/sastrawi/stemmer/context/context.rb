@@ -22,7 +22,7 @@ module Sastrawi
         end
 
         def stop_process
-          # TODO: Implement this method here.
+            @@process_is_stopped == true
         end
 
         def add_removal
