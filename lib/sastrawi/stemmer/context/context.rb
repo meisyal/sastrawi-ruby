@@ -9,6 +9,7 @@ module Sastrawi
         @@visitors = []
         @@suffix_visitors = []
         @@prefix_visitors = []
+        @@result = ''
 
         def initialize(original_word, current_word, dictionary, visitor_provider)
             @original_word = original_word
@@ -30,7 +31,13 @@ module Sastrawi
         end
 
         def execute
-          # TODO: Implement this method here.
+          self.start_stemming_process
+
+          if @dictionary.include?(current_word)
+            @@result = current_word
+          else
+            @@result = original_word
+          end
         end
 
         def start_stemming_process
