@@ -26,8 +26,8 @@ module Sastrawi
             @@process_is_stopped == true
         end
 
-        def add_removal
-          # TODO: Implement this method here.
+        def add_removal(removal)
+            @@removal = removal
         end
 
         def execute
