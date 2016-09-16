@@ -19,7 +19,9 @@ module Sastrawi
         end
 
         def init_visitors
-          # TODO: Implement this method here.
+          @@visitors = visitor_provider.get_visitor
+          @@suffix_visitors = visitor_provider.get_suffix_visitor
+          @@prefix_visitors = visitor_provider.get_prefix_visitor
         end
 
         def stop_process
