@@ -25,7 +25,7 @@ module Sastrawi
         end
 
         def stop_process
-            @@process_is_stopped == true
+            @@process_is_stopped = true
         end
 
         def add_removal(removal)
@@ -35,7 +35,7 @@ module Sastrawi
         def execute
           self.start_stemming_process
 
-          if @dictionary.include?(current_word)
+          if dictionary.include?(current_word)
             @@result = current_word
           else
             @@result = original_word
