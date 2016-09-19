@@ -51,7 +51,7 @@ module Sastrawi
         end
 
         def remove_suffixes
-          # TODO: Implement this method here.
+          self.accept_visitors(@@suffix_visitors)
         end
 
         def accept
