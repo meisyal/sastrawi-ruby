@@ -47,7 +47,10 @@ module Sastrawi
         end
 
         def remove_prefixes
-          # TODO: Implement this method here.
+          (0..3).each do |i|
+            self.accept_prefix_visitors(@@prefix_visitors)
+            return if dictionary.include?(current_word)
+          end
         end
 
         def remove_suffixes
