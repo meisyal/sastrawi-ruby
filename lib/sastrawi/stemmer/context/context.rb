@@ -69,8 +69,10 @@ module Sastrawi
           # TODO: Implement this method here.
         end
 
-        def suffix_removal?
-          # TODO: Implement this method here.
+        def suffix_removal?(removal)
+          return removal.get_affix_type == 'DS'
+            || removal.get_affix_type == 'PP'
+            || removal.get_affix_type == 'P'
         end
 
         def restore_prefix
