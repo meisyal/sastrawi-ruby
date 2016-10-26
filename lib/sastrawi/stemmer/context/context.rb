@@ -57,8 +57,8 @@ module Sastrawi
           self.accept_visitors(@@suffix_visitors)
         end
 
-        def accept
-          # TODO: Implement this method here.
+        def accept(visitor)
+          visitor.visit(self)
         end
 
         def accept_visitors
