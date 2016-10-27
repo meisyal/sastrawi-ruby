@@ -61,8 +61,14 @@ module Sastrawi
           visitor.visit(self)
         end
 
-        def accept_visitors
-          # TODO: Implement this method here.
+        def accept_visitors(visitors)
+          visitors.each do |visitor|
+            self.accept(visitor)
+
+            return current_word if dictionary.include?(current_word)
+
+            return current_word if @@process_is_stopped
+          end
         end
 
         def accept_prefix_visitors
