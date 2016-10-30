@@ -82,5 +82,16 @@ module Sastrawi
         end
 
         def restore_prefix
-          # TODO: Implement this method here.
+          removal.each do |removal|
+            if removal.get_affix_type == 'DP'
+              current_word = removal.get_subject
+              break
+            end
+          end
+
+          removal.each do |removal|
+            if removal.get_affix_type == 'DP'
+              # TODO unset array
+            end
+          end
         end
