@@ -71,8 +71,18 @@ module Sastrawi
           end
         end
 
-        def accept_prefix_visitors
-          # TODO: Implement this method here.
+        def accept_prefix_visitors(visitors)
+          removal_length = removal.size
+
+          visitors.each do |visitor|
+            self.accept(visitor)
+
+            return current_word if dictionary.include?(current_word)
+
+            return current_word if @@process_is_stopped
+
+            return if removal.size > removal_length
+          end
         end
 
         def suffix_removal?(removal)
