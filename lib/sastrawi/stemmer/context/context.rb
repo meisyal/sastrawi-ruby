@@ -99,9 +99,9 @@ module Sastrawi
             end
           end
 
-          removal.each do |removal|
-            if removal.get_affix_type == 'DP'
-              # TODO unset array
+          removal.each do |r|
+            if r.get_affix_type == 'DP'
+              removal.delete(r)
             end
           end
         end
