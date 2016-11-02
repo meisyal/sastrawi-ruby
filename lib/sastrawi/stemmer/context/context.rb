@@ -43,7 +43,33 @@ module Sastrawi
         end
 
         def start_stemming_process
-          # TODO: Implement this method here.
+          return if dictionary.include?(current_word)
+
+          self.accept_visitors(@@visitors)
+
+          return if dictionary.include?(current_word)
+
+          cs_precendence_adjustment_specification =
+
+          if cs_precendence_adjustment_specification.is_satisfied_by(original_word)
+            self.remove_prefixes
+            return if dictionary.include?(current_word)
+
+            self.remove_suffixes
+            if dictionary.include?(current_word)
+              return
+            else
+              current_word(original_word)
+              removal = []
+            end
+
+            self.remove_suffixes
+            return if dictionary.include?(current_word)
+
+            self.remove_prefixes
+            return if dictionary.include?(current_word)
+
+            self.loop_last_return
         end
 
         def remove_prefixes
