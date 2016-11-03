@@ -70,6 +70,36 @@ module Sastrawi
             return if dictionary.include?(current_word)
 
             self.loop_last_return
+          end
+        end
+
+        def loop_last_return
+          self.restore_prefix
+
+          removals = removal
+          reversed_removals = removals.reverse
+          current_word = current_word
+
+          reversed_removals.each do |reverse_removal|
+            next if !self.suffix_removal(reverse_removal)
+
+            if reverse_removal.get_removed_part == 'kan'
+              current_word = reverse_removal.get_result << 'k'
+
+              self.remove_prefixes
+              return if dictionary.include?(current_word)
+
+              current_word = reverse_removal.get_result << 'kan'
+            else
+              current_word = reverse_removal.get_subject
+            end
+
+            self.remove_prefixes
+            return if dictionary.include?(current_word)
+
+            removals = removals
+            current_word = current_word
+          end
         end
 
         def remove_prefixes
