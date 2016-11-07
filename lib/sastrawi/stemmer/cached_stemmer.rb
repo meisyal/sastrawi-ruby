@@ -1,20 +1,39 @@
 module Sastrawi
   module Stemmer
     class CachedStemmer
-      def initialize
-        # TODO: Implement this method here.
+      attr_reader :cache, :delegated_stemmer
+
+      def initialize(cache, delegated_stemmer)
+        @cache = cache
+        @delegated_stemmer = delegated_stemmer
       end
 
       def stem(text)
-        # TODO: Implement this method here.
+        # TODO: call TextNormalizer class
+        # normalized_text =
+
+        words = normalized_text.split(' ')
+        stems = []
+
+        words.each do |word|
+          if @cache.has(word)
+            stems.push(@cache.get(word))
+          else
+            stem = @delegated_stemmer.stem(word)
+            @cache.set(word, stem)
+            stems.push(stem)
+          end
+        end
+
+        return ' ' << stems
       end
 
       def get_cache
-        # TODO: Implement this method here.
+        @cache
       end
 
       def get_delegated_stemmer
-        # TODO: Implement this method here.
+        @delegated_stemmer
       end
     end
   end
