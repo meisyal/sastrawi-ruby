@@ -1,3 +1,5 @@
+require 'filter/text_normalizer'
+
 module Sastrawi
   module Stemmer
     class CachedStemmer
@@ -9,8 +11,7 @@ module Sastrawi
       end
 
       def stem(text)
-        # TODO: call TextNormalizer class
-        # normalized_text =
+        normalized_text = TextNormalizer.normalize_text(text)
 
         words = normalized_text.split(' ')
         stems = []
