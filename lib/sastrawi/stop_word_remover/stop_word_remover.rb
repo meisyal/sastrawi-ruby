@@ -1,16 +1,27 @@
 module Sastrawi
   module StopWordRemover
     class StopWordRemover
-      def initialize
-        # TODO: Implement this method here.
+      attr_reader :dictionary
+
+      def initialize(dictionary)
+        @dictionary = dictionary
       end
 
       def get_dictionary
-        # TODO: Implement this method here.
+        @dictionary
       end
 
       def remove(text)
-        # TODO: Implement this method here.
+        words = text.split(' ')
+        stop_words = []
+
+        words.each do |word|
+          if !@dictionary.include?(word)
+            stop_words.push(word)
+          end
+        end
+
+        return ' ' << stop_words
       end
     end
   end
