@@ -4,23 +4,25 @@ module Sastrawi
       attr_accessor :words
 
       def initialize
-        self.words = []
+        @words = []
       end
 
-      def lookup(word)
-        puts word if words.include?(word)
+      def contains(word)
+        return word if @words.include?(word)
       end
 
       def count
-        puts words.length
+        @words.length
       end
 
       def add_words(new_words = [])
-        words.concat(new_words)
+        @words.concat(new_words)
       end
 
       def add(word)
-        words.push(word)
+        return if word == ''
+
+        @words.push(word)
       end
     end
   end
