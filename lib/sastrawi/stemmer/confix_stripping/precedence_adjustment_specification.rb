@@ -3,10 +3,13 @@ module Sastrawi
     module ConfixStripping
       class PrecedenceAdjustmentSpecification
         def satisfied_by?(value)
-          regex_rules = ['/^be(.*)lah$/', '/^be(.*)an$/', '/^me(.*)i$/', '/^di(.*)i$/', '/^pe(.*)i$/', '/^ter(.*)i$/']
+          regex_rules = [
+            '/^be(.*)lah$/', '/^be(.*)an$/', '/^me(.*)i$/',
+            '/^di(.*)i$/', '/^pe(.*)i$/', '/^ter(.*)i$/'
+          ]
 
-          regex_rules.each do |r|
-            return true if r.gsub!(regex_rules, value)
+          regex_rules.each do |rule|
+            return true if rule.match(value)
           end
 
           false
