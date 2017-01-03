@@ -3,7 +3,9 @@ module Sastrawi
     module Disambiguator
       class DisambiguatorPrefixRule1a
         def disambiguate(word)
-          if contains = /^ber([aiueo].*)$/.match(word)
+          contains = /^ber([aiueo].*)$/.match(word)
+
+          if contains
             matches = contains.captures
 
             return matches[0]
