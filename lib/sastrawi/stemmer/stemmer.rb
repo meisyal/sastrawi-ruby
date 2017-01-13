@@ -1,4 +1,4 @@
-require 'filter/text_normalizer'
+require 'sastrawi/stemmer/filter/text_normalizer'
 
 module Sastrawi
   module Stemmer

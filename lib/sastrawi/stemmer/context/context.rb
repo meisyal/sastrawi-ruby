@@ -1,4 +1,4 @@
-require 'confix_stripping/precedence_adjustment_specification'
+require 'sastrawi/stemmer/confix_stripping/precedence_adjustment_specification'
 
 module Sastrawi
   module Stemmer

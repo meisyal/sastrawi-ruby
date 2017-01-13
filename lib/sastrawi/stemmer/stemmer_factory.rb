@@ -1,5 +1,5 @@
-require 'cache/array_cache'
-require 'dictionary/array_dictionary'
+require 'sastrawi/stemmer/cache/array_cache'
+require 'sastrawi/dictionary/array_dictionary'
 
 module Sastrawi
   module Stemmer

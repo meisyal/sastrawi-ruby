@@ -1,5 +1,5 @@
-require 'dictionary/array_dictionary'
-require 'stop_word_remover/stop_word_remover'
+require 'sastrawi/dictionary/array_dictionary'
+require 'sastrawi/stop_word_remover/stop_word_remover'
 
 module Sastrawi
   module StopWordRemover
