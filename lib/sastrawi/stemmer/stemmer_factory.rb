@@ -25,8 +25,8 @@ module Sastrawi
       end
 
       def get_words_from_file
-        current_directory = File.expand_path('../../..')
-        dictionary_file_path = File.join(current_directory, 'data/kata-dasar.txt')
+        root_directory = File.expand_path('../../../..', __FILE__)
+        dictionary_file_path = File.join(root_directory, 'data/kata-dasar.txt')
 
         dictionary_content = File.open(dictionary_file_path, 'rb') { |f| f.read }
 
