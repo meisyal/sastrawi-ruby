@@ -1,7 +1,7 @@
 module Sastrawi
   module Morphology
     module Disambiguator
-      class DisambiguatorPrefixRule18a
+      class DisambiguatorPrefixRule18b
         def disambiguate(word)
           contains = /^meny([aiueo])(.*)$/.match(word)
 

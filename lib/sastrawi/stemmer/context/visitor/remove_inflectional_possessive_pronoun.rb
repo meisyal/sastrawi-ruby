@@ -2,7 +2,7 @@ module Sastrawi
   module Stemmer
     module Context
       module Visitor
-        class RemoveInflectionalParticle
+        class RemoveInflectionalPossessivePronoun
           def visit(context)
             result = remove(context.get_current_word)
 
