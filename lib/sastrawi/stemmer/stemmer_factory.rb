@@ -1,27 +1,30 @@
-require 'sastrawi/stemmer/cache/array_cache'
 require 'sastrawi/dictionary/array_dictionary'
+require 'sastrawi/stemmer/cached_stemmer'
+require 'sastrawi/stemmer/stemmer'
+require 'sastrawi/stemmer/cache/array_cache'
+
 
 module Sastrawi
   module Stemmer
     class StemmerFactory
       def create_stemmer(is_dev = false)
-        stemmer = Stemmer.new(self.create_default_dictionary(is_dev))
+        stemmer = Sastrawi::Stemmer::Stemmer.new(create_default_dictionary(is_dev))
 
-        cache_result = ArrayCache.new
-        cached_stemmer = CachedStemmer.new(cache_result, stemmer)
+        cache_result = Sastrawi::Stemmer::Cache::ArrayCache.new
+        cached_stemmer = Sastrawi::Stemmer::CachedStemmer.new(cache_result, stemmer)
 
-        return cached_stemmer
+        cached_stemmer
       end
 
       def create_default_dictionary(is_dev = false)
-        words = self.get_words(is_dev)
-        dictionary = ArrayDictionary.new(words)
+        words = get_words(is_dev)
+        dictionary = Sastrawi::Dictionary::ArrayDictionary.new(words)
 
-        return dictionary
+        dictionary
       end
 
       def get_words(is_dev = false)
-        self.get_words_from_file
+        get_words_from_file
       end
 
       def get_words_from_file
@@ -30,7 +33,7 @@ module Sastrawi
 
         dictionary_content = File.open(dictionary_file_path, 'rb') { |f| f.read }
 
-        return dictionary_content.split('\n')
+        dictionary_content.split('\n')
       end
     end
   end
