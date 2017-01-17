@@ -4,7 +4,7 @@ module Sastrawi
       module Visitor
         class DontStemShortWord
           def visit(context)
-            return context.stop_process if self.short_word?(context.get_current_word)
+            context.stop_process if short_word?(context.current_word)
           end
 
           def short_word?(word)

@@ -4,15 +4,15 @@ module Sastrawi
       module Visitor
         class RemovePlainPrefix
           def visit(context)
-            result = remove(context.get_current_word)
+            result = remove(context.current_word)
 
-            if result != context.get_current_word
-              removed_part = context.get_current_word.sub(result, '')
+            if result != context.current_word
+              removed_part = context.current_word.sub(result, '')
 
-              removal = Removal.new(context.get_current_word, result, removed_part, 'DP')
+              removal = Removal.new(context.current_word, result, removed_part, 'DP')
 
               context.add_removal(removal)
-              context.set_current_word(result)
+              context.current_word = result
             end
           end
 
