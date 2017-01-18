@@ -3,7 +3,7 @@ require 'sastrawi/stemmer/filter/text_normalizer'
 module Sastrawi
   module Stemmer
     class CachedStemmer
-      attr_reader :cache, :delegated_stemmer
+      attr_accessor :cache, :delegated_stemmer
 
       def initialize(cache, delegated_stemmer)
         @cache = cache
@@ -11,7 +11,7 @@ module Sastrawi
       end
 
       def stem(text)
-        normalized_text = TextNormalizer.normalize_text(text)
+        normalized_text = Sastrawi::Stemmer::Filter::TextNormalizer.normalize_text(text)
 
         words = normalized_text.split(' ')
         stems = []
@@ -26,15 +26,7 @@ module Sastrawi
           end
         end
 
-        return ' ' << stems
-      end
-
-      def get_cache
-        @cache
-      end
-
-      def get_delegated_stemmer
-        @delegated_stemmer
+        stems.join(' ')
       end
     end
   end
