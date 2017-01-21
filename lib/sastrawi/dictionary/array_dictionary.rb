@@ -3,8 +3,10 @@ module Sastrawi
     class ArrayDictionary
       attr_accessor :words
 
-      def initialize
+      def initialize(words = [])
         @words = []
+
+        add_words(words)
       end
 
       def contains(word)
@@ -15,7 +17,7 @@ module Sastrawi
         @words.length
       end
 
-      def add_words(new_words = [])
+      def add_words(new_words)
         @words.concat(new_words)
       end
 
