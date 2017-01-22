@@ -6,6 +6,8 @@ module Sastrawi
           attr_accessor :disambiguators
 
           def initialize(disambiguators = [])
+            @disambiguators = []
+
             add_disambiguators(disambiguators)
           end
 
@@ -13,17 +15,17 @@ module Sastrawi
             result = nil
 
             @disambiguators.each do |disambiguator|
-              result = disambiguator.disambiguate(context.get_current_word)
+              result = disambiguator.disambiguate(context.current_word)
 
-              next if context.get_dictionary.include?(result)
+              next if context.dictionary.include?(result)
             end
 
             return if result.nil?
           end
 
-          def add_disambiguators(disambiguators = [])
+          def add_disambiguators(disambiguators)
             disambiguators.each do |disambiguator|
-              self.add_disambiguator(disambiguator)
+              add_disambiguator(disambiguator)
             end
           end
 
