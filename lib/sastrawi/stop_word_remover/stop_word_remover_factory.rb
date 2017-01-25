@@ -5,12 +5,12 @@ module Sastrawi
   module StopWordRemover
     module StopWordRemoverFactory
       def create_stop_word_remover
-        stop_words = self.get_stop_word
+        stop_words = get_stop_word
 
-        dictionary = ArrayDictionary.new(stop_words)
-        stop_word_remover = StopWordRemover.new(dictionary)
+        dictionary = Sastrawi::Dictionary::ArrayDictionary.new(stop_words)
+        stop_word_remover = Sastrawi::StopWordRemover::StopWordRemover.new(dictionary)
 
-        return stop_word_remover
+        stop_word_remover
       end
 
       def get_stop_word
@@ -145,7 +145,7 @@ module Sastrawi
           'walaupun', 'wong', 'x', 'y', 'ya', 'yaitu', 'yakin', 'yakni', 'yang', 'z'
         ]
 
-        return stop_words
+        stop_words
       end
     end
   end
