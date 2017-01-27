@@ -16,8 +16,8 @@ module Sastrawi
           return @data[key.to_sym] if @data.key?(key.to_sym)
         end
 
-        def has(key)
-          return key if @data.key?(key.to_sym)
+        def has?(key)
+          @data.key?(key.to_sym)
         end
       end
     end
