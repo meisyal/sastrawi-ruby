@@ -9,8 +9,8 @@ module Sastrawi
         add_words(words)
       end
 
-      def contains(word)
-        return word if @words.include?(word)
+      def contains?(word)
+        @words.include?(word)
       end
 
       def count
