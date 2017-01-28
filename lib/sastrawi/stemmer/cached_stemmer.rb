@@ -17,7 +17,7 @@ module Sastrawi
         stems = []
 
         words.each do |word|
-          if @cache.has(word)
+          if @cache.has?(word)
             stems.push(@cache.get(word))
           else
             stem = @delegated_stemmer.stem(word)
