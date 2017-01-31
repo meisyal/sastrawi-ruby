@@ -4,11 +4,14 @@ module Sastrawi
   module Stemmer
     module Context
       class Context
-        def initialize(original_word, current_word, dictionary, visitor_provider)
+        attr_accessor :original_word, :current_word, :dictionary, :visitor_provider, :process_is_stopped, :removals, :visitors, :suffix_visitors, :prefix_visitors, :result
+
+        def initialize(original_word, dictionary, visitor_provider)
             @original_word = original_word
-            @current_word = current_word
+            @current_word = original_word
             @dictionary = dictionary
             @visitor_provider = visitor_provider
+
             @process_is_stopped = false
             @removals = []
             @visitors = []
@@ -16,13 +19,13 @@ module Sastrawi
             @prefix_visitors = []
             @result = ''
 
-            self.init_visitors
+            init_visitors
         end
 
         def init_visitors
-          @visitors = visitor_provider.get_visitor
-          @suffix_visitors = visitor_provider.get_suffix_visitor
-          @prefix_visitors = visitor_provider.get_prefix_visitor
+          @visitors = visitor_provider.visitors
+          @suffix_visitors = visitor_provider.suffix_visitors
+          @prefix_visitors = visitor_provider.prefix_visitors
         end
 
         def stop_process
@@ -30,73 +33,73 @@ module Sastrawi
         end
 
         def add_removal(removal)
-          @removals = removal
+          @removals.push(removal)
         end
 
         def execute
-          self.start_stemming_process
+          start_stemming_process
 
-          if @dictionary.include?(@current_word)
+          if @dictionary.contains?(@current_word)
             @result = @current_word
           else
-            @result = original_word
+            @result = @original_word
           end
         end
 
         def start_stemming_process
-          return if @dictionary.include?(@current_word)
+          return if @dictionary.contains?(@current_word)
 
-          self.accept_visitors(@visitors)
+          accept_visitors(@visitors)
 
-          return if @dictionary.include?(@current_word)
+          return if @dictionary.contains?(@current_word)
 
-          cs_precendence_adjustment_specification = PrecedenceAdjustmentSpecification.new
+          cs_precendence_adjustment_specification = Sastrawi::Stemmer::ConfixStripping::PrecedenceAdjustmentSpecification.new
 
-          if cs_precendence_adjustment_specification.is_satisfied_by(@original_word)
-            self.remove_prefixes
-            return if @dictionary.include?(@current_word)
+          if cs_precendence_adjustment_specification.satisfied_by?(@original_word)
+            remove_prefixes
+            return if @dictionary.contains?(@current_word)
 
-            self.remove_suffixes
-            if @dictionary.include?(@current_word)
+            remove_suffixes
+            if @dictionary.contains?(@current_word)
               return
             else
-              @current_word = @original_word)
+              @current_word = @original_word
               @removals = []
             end
 
-            self.remove_suffixes
-            return if @dictionary.include?(@current_word)
+            remove_suffixes
+            return if @dictionary.contains?(@current_word)
 
-            self.remove_prefixes
-            return if @dictionary.include?(@current_word)
+            remove_prefixes
+            return if @dictionary.contains?(@current_word)
 
-            self.loop_last_return
+            loop_last_return
           end
         end
 
         def loop_last_return
-          self.restore_prefix
+          restore_prefix
 
           removals = @removals
           reversed_removals = removals.reverse
           current_word = @current_word
 
           reversed_removals.each do |reverse_removal|
-            next if !self.suffix_removal(reverse_removal)
+            next unless suffix_removal(reverse_removal)
 
-            if reverse_removal.get_removed_part == 'kan'
-              @current_word = reverse_removal.get_result << 'k'
+            if reverse_removal.removed_part == 'kan'
+              @current_word = reverse_removal.result << 'k'
 
-              self.remove_prefixes
-              return if @dictionary.include?(@current_word)
+              remove_prefixes
+              return if @dictionary.contains?(@current_word)
 
-              @current_word = reverse_removal.get_result << 'kan'
+              @current_word = reverse_removal.result << 'kan'
             else
-              @current_word = reverse_removal.get_subject
+              @current_word = reverse_removal.subject
             end
 
-            self.remove_prefixes
-            return if @dictionary.include?(@current_word)
+            remove_prefixes
+            return if @dictionary.contains?(@current_word)
 
             @removals = removals
             @current_word = current_word
@@ -105,13 +108,14 @@ module Sastrawi
 
         def remove_prefixes
           3.times do
-            self.accept_prefix_visitors(@prefix_visitors)
-            return if @dictionary.include?(@current_word)
+            accept_prefix_visitors(@prefix_visitors)
+
+            return if @dictionary.contains?(@current_word)
           end
         end
 
         def remove_suffixes
-          self.accept_visitors(@suffix_visitors)
+          accept_visitors(@suffix_visitors)
         end
 
         def accept(visitor)
@@ -120,9 +124,9 @@ module Sastrawi
 
         def accept_visitors(visitors = [])
           visitors.each do |visitor|
-            self.accept(visitor)
+            accept(visitor)
 
-            return @current_word if @dictionary.include?(@current_word)
+            return @current_word if @dictionary.contains?(@current_word)
 
             return @current_word if @process_is_stopped
           end
@@ -132,9 +136,9 @@ module Sastrawi
           removal_length = @removals.length
 
           visitors.each do |visitor|
-            self.accept(visitor)
+            accept(visitor)
 
-            return @current_word if @dictionary.include?(@current_word)
+            return @current_word if @dictionary.contains?(@current_word)
 
             return @current_word if @process_is_stopped
 
@@ -143,22 +147,20 @@ module Sastrawi
         end
 
         def suffix_removal?(removal)
-          return removal.get_affix_type == 'DS'
-            || removal.get_affix_type == 'PP'
-            || removal.get_affix_type == 'P'
+          removal.affix_type == 'DS' || removal.affix_type == 'PP' || removal.affix_type == 'P'
         end
 
         def restore_prefix
           @removals.each do |removal|
-            if removal.get_affix_type == 'DP'
-              @current_word = removal.get_subject
+            if removal.affix_type == 'DP'
+              @current_word = removal.subject
               break
             end
           end
 
           @removals.each do |removal|
-            if removal.get_affix_type == 'DP'
-              @removals.delete(r)
+            if removal.affix_type == 'DP'
+              @removals.delete(removal)
             end
           end
         end
