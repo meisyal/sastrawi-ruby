@@ -7,6 +7,6 @@ module Sastrawi
       stemmer_factory = Sastrawi::Stemmer::StemmerFactory.new
       stemmer = stemmer_factory.create_stemmer
 
-      puts stemmer.stem(sentence)
+      stemmer.stem(sentence)
   end
 end
