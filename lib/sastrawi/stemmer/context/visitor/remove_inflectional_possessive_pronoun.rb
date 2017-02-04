@@ -9,7 +9,7 @@ module Sastrawi
             if result != context.current_word
               removed_part = context.current_word.sub(result, '')
 
-              removal = Removal.new(context.current_word, result, removed_part, 'PP')
+              removal = Removal.new(self, context.current_word, result, removed_part, 'PP')
 
               context.add_removal(removal)
               context.current_word = result
