@@ -11,11 +11,13 @@ module Sastrawi
           /^me(.*)an$/, /^me(.*)an$/, /^ter(.*)an$/, /^per(.*)an$/
         ]
 
+        matches = false
+
         invalid_affixes.each do |invalid_affix|
-          return true if invalid_affix.match(word)
+          matches = matches || !!(word =~ invalid_affix)
         end
 
-        false
+        matches
       end
     end
   end
