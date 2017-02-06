@@ -23,9 +23,9 @@ module Sastrawi
         end
 
         def init_visitors
-          @visitors = visitor_provider.visitors
-          @suffix_visitors = visitor_provider.suffix_visitors
-          @prefix_visitors = visitor_provider.prefix_visitors
+          @visitors = @visitor_provider.visitors
+          @suffix_visitors = @visitor_provider.suffix_visitors
+          @prefix_visitors = @visitor_provider.prefix_visitors
         end
 
         def stop_process
@@ -122,7 +122,7 @@ module Sastrawi
           visitor.visit(self)
         end
 
-        def accept_visitors(visitors = [])
+        def accept_visitors(visitors)
           visitors.each do |visitor|
             accept(visitor)
 
@@ -132,7 +132,7 @@ module Sastrawi
           end
         end
 
-        def accept_prefix_visitors(visitors = [])
+        def accept_prefix_visitors(visitors)
           removal_length = @removals.length
 
           visitors.each do |visitor|
