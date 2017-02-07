@@ -18,7 +18,9 @@ module Sastrawi
       end
 
       def add_words(new_words)
-        @words.concat(new_words)
+        new_words.each do |word|
+          add(word)
+        end
       end
 
       def add(word)
