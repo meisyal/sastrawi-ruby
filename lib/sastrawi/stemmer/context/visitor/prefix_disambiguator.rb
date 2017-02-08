@@ -17,10 +17,17 @@ module Sastrawi
             @disambiguators.each do |disambiguator|
               result = disambiguator.disambiguate(context.current_word)
 
-              next if context.dictionary.include?(result)
+              break if context.dictionary.contains?(result)
             end
 
             return if result.nil?
+
+            removed_part = context.current_word.sub(result, '')
+
+            removal = Removal.new(self, context.current_word, result, removed_part, 'DP')
+
+            context.add_removal(removal)
+            context.current_word = result
           end
 
           def add_disambiguators(disambiguators)
