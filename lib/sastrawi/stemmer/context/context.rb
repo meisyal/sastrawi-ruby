@@ -85,7 +85,7 @@ module Sastrawi
           current_word = @current_word
 
           reversed_removals.each do |reverse_removal|
-            next unless suffix_removal(reverse_removal)
+            next unless suffix_removal?(reverse_removal)
 
             if reverse_removal.removed_part == 'kan'
               @current_word = reverse_removal.result << 'k'
