@@ -18,7 +18,9 @@ module Sastrawi
         words = normalized_text.split(' ')
         stems = []
 
-        words.each { |word| stems.push(stem_word(word)) }
+        words.each do |word|
+          stems.push(stem_word(word))
+        end
 
         stems.join(' ')
       end
