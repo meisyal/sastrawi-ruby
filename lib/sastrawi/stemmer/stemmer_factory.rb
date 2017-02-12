@@ -31,9 +31,14 @@ module Sastrawi
         root_directory = File.expand_path('../../../..', __FILE__)
         dictionary_file_path = File.join(root_directory, 'data/kata-dasar.txt')
 
-        dictionary_content = File.open(dictionary_file_path, 'rb') { |f| f.read }
+        dictionary_content = []
+        File.open(dictionary_file_path, 'r') do |file|
+          file.each do |line|
+            dictionary_content.push(line.chomp)
+          end
+        end
 
-        dictionary_content.split('\n')
+        dictionary_content
       end
     end
   end
