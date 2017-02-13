@@ -1,3 +1,5 @@
+require 'sastrawi/stemmer/context/removal'
+
 module Sastrawi
   module Stemmer
     module Context
@@ -9,7 +11,7 @@ module Sastrawi
             if result != context.current_word
               removed_part = context.current_word.sub(result, '')
 
-              removal = Removal.new(self, context.current_word, result, removed_part, 'DS')
+              removal = Sastrawi::Stemmer::Context::Removal.new(self, context.current_word, result, removed_part, 'DS')
 
               context.add_removal(removal)
               context.current_word = result
