@@ -18,15 +18,15 @@ check [sastrawi-ruby GitHub Wiki][documentation] that contains TODO list.
 There are two options to install this library. First, if you just want to use
 Ruby bindings for Sastrawi, add this line to your application's Gemfile:
 
-  gem 'sastrawi'
+    gem 'sastrawi'
 
 and then execute:
 
-  bundle install
+    bundle install
 
 or you can install directly:
 
-  gem install sastrawi
+    gem install sastrawi
 
 Note that, this library requires Ruby. Ruby 1.9.3 or above should be installed
 on your system. I would recommend to choose the stable versions.
