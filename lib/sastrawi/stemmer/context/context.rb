@@ -66,15 +66,15 @@ module Sastrawi
               @current_word = @original_word
               @removals = []
             end
-
-            remove_suffixes
-            return if @dictionary.contains?(@current_word)
-
-            remove_prefixes
-            return if @dictionary.contains?(@current_word)
-
-            loop_last_return
           end
+
+          remove_suffixes
+          return if @dictionary.contains?(@current_word)
+
+          remove_prefixes
+          return if @dictionary.contains?(@current_word)
+
+          loop_last_return
         end
 
         def loop_last_return
