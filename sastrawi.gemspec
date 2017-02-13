@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Andrias Meisyal"]
   spec.email         = ["andriasonline@gmail.com"]
 
-  spec.summary       = %q{Ruby bindings for Sastrawi.}
+  spec.summary       = %q{Ruby bindings for Sastrawi}
   spec.description   = %q{A Ruby library which allows you to stem words in Bahasa Indonesia.}
   spec.homepage      = "https://github.com/meisyal/sastrawi-ruby"
   spec.license       = "MIT"
