@@ -44,8 +44,7 @@ require 'sastrawi'
 sentence = 'Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan.'
 stemming_result = Sastrawi.stem(sentence)
 
-# the stemming result should be "ekonomi indonesia sedang dalam tumbuh yang
-bangga"
+# the stemming result should be "ekonomi indonesia sedang dalam tumbuh yang bangga"
 puts stemming_result
 ```
 
