@@ -50,7 +50,7 @@ module Sastrawi
           return word
         end
 
-        words = [first_match.captures[0], first_match.captures[1]]
+        words = [first_match[1], first_match[2]]
 
         suffix = words[1]
         suffixes = ['ku', 'mu', 'nya', 'lah', 'kah', 'tah', 'pun']
