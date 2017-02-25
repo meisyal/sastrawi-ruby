@@ -56,4 +56,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem combination of suffixes' do
+    suffixed_words = %w[bukumukah miliknyalah kulitkupun berikanku sakitimu beriannya kasihilah]
+    base_form = %w[buku milik kulit beri sakit beri kasih]
+    stemming_result = []
+
+    suffixed_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
