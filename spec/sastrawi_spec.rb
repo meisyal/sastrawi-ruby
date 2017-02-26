@@ -68,4 +68,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem plain prefix' do
+    plain_prefixed_words = %w[dibuang kesakitan sesuap]
+    base_form = %w[buang sakit suap]
+    stemming_result = []
+
+    plain_prefixed_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
