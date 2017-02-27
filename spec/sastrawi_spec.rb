@@ -80,4 +80,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem first rule of derivation prefixes' do
+    first_rule_prefixed_words = %w[beradu berambut]
+    base_form = %w[adu rambut]
+    stemming_result = []
+
+    first_rule_prefixed_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
