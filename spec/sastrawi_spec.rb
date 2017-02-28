@@ -92,4 +92,8 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem second rule of derivation prefixes' do
+    expect(Sastrawi.stem('bersuara')).to eq('suara')
+  end
 end
