@@ -3,7 +3,7 @@ module Sastrawi
     module Disambiguator
       class DisambiguatorPrefixRule29
         def disambiguate(word)
-          contains = /^pen([bcdfghjklmnpqrstvwxyz])(.*)$/.match(word)
+          contains = /^peng([bcdfghjklmnpqrstvwxyz])(.*)$/.match(word)
 
           if contains
             matches = contains.captures
