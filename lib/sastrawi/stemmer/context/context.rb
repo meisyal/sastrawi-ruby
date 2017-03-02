@@ -14,10 +14,10 @@ module Sastrawi
 
             @process_is_stopped = false
             @removals = []
-            @visitors = []
-            @suffix_visitors = []
-            @prefix_visitors = []
-            @result = ''
+            @visitors = nil
+            @suffix_visitors = nil
+            @prefix_visitors = nil
+            @result = nil
 
             init_visitors
         end
