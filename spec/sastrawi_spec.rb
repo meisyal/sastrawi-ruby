@@ -372,4 +372,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem modified twelfth and sixteenth rules' do
+    modified_rule_prefixed_words = %w[mempengaruhi mengkritik]
+    base_form = %w[pengaruh kritik]
+    stemming_result = []
+
+    modified_rule_prefixed_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
