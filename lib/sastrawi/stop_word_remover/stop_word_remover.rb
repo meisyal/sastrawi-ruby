@@ -1,7 +1,7 @@
 module Sastrawi
   module StopWordRemover
     class StopWordRemover
-      attr_accessor :dictionary
+      attr_reader :dictionary
 
       def initialize(dictionary)
         @dictionary = dictionary

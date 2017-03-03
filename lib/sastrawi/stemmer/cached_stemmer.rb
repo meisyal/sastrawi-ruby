@@ -3,7 +3,7 @@ require 'sastrawi/stemmer/filter/text_normalizer'
 module Sastrawi
   module Stemmer
     class CachedStemmer
-      attr_accessor :cache, :delegated_stemmer
+      attr_reader :cache, :delegated_stemmer
 
       def initialize(cache, delegated_stemmer)
         @cache = cache

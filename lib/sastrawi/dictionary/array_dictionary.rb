@@ -1,7 +1,7 @@
 module Sastrawi
   module Dictionary
     class ArrayDictionary
-      attr_accessor :words
+      attr_reader :words
 
       def initialize(words = [])
         @words = []

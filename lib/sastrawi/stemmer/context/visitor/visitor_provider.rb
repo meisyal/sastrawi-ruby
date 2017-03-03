@@ -69,7 +69,7 @@ module Sastrawi
     module Context
       module Visitor
         class VisitorProvider
-          attr_accessor :visitors, :suffix_visitors, :prefix_visitors
+          attr_reader :visitors, :suffix_visitors, :prefix_visitors
 
           def initialize
             @visitors = []

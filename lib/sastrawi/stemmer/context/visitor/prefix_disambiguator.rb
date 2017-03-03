@@ -3,7 +3,7 @@ module Sastrawi
     module Context
       module Visitor
         class PrefixDisambiguator
-          attr_accessor :disambiguators
+          attr_reader :disambiguators
 
           def initialize(disambiguators = [])
             @disambiguators = []

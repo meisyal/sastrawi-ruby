@@ -5,7 +5,7 @@ require 'sastrawi/stemmer/filter/text_normalizer'
 module Sastrawi
   module Stemmer
     class Stemmer
-      attr_accessor :dictionary, :visitor_provider
+      attr_reader :dictionary, :visitor_provider
 
       def initialize(dictionary)
         @dictionary = dictionary
