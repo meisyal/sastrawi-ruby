@@ -384,4 +384,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem adjusting rule precedence' do
+    adjusting_rule_precedence_words = %w[bersekolah bertahan mencapai dimulai petani terabai]
+    base_form = %w[sekolah tahan capai mulai tani abai]
+    stemming_result = []
+
+    adjusting_rule_precedence_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
