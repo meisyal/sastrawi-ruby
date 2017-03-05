@@ -396,4 +396,19 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem enhanced confix stripping' do
+    enhanced_confix_stripping_words = %w[
+      mensyaratkan mensyukuri mengebom mempromosikan
+      memproteksi memprediksi pengkajian pengembom
+    ]
+    base_form = %w[syarat syukur bom promosi proteksi prediksi kaji bom]
+    stemming_result = []
+
+    enhanced_confix_stripping_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
