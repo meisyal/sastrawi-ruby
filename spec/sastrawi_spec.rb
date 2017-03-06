@@ -411,4 +411,24 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem loop last return of enhanced confix stripping' do
+    loop_last_return_enhanced_confix_stripping_words = %w[
+      bersembunyi bersembunyilah pelanggan pelaku
+      pelangganmukah pelakunyalah perbaikan kebaikannya
+      bisikan menerangi berimanlah memuaskan
+      berpelanggan bermakanan
+    ]
+    base_form = %w[
+      sembunyi sembunyi langgan laku langgan laku baik
+      baik bisik terang iman puas langgan makan
+    ]
+    stemming_result = []
+
+    loop_last_return_enhanced_confix_stripping_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
