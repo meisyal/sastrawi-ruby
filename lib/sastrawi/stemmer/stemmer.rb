@@ -36,35 +36,29 @@ module Sastrawi
       def plural?(word)
         matches = /^(.*)-(ku|mu|nya|lah|kah|tah|pun)$/.match(word)
 
-        if matches
-          true
-        else
-          false
-        end
+        return matches[1].include?('-') if matches
+
+        return word.include?('-')
       end
 
       def stem_plural_word(word)
         first_match = /^(.*)-(.*)$/.match(word)
 
-        unless first_match
-          return word
-        end
+        return word unless first_match
 
-        words = [first_match[1], first_match[2]]
-
-        suffix = words[1]
+        suffix = first_match[2]
         suffixes = ['ku', 'mu', 'nya', 'lah', 'kah', 'tah', 'pun']
-        second_match = /^(.*)-(.*)$/.match(words[0])
+        second_match = /^(.*)-(.*)$/.match(first_match[1])
 
         if suffixes.include?(suffix) && second_match
-          words[1] = words[1] + '-' + suffix
+          first_match[2] = first_match[2] << '-' << suffix
         end
 
-        root_first_word = stem_singular_word(words[0])
-        root_second_word = stem_singular_word(words[1])
+        root_first_word = stem_singular_word(first_match[1])
+        root_second_word = stem_singular_word(first_match[2])
 
-        unless @dictionary.contains?(words[1]) && root_second_word == words[1]
-          root_second_word = stem_singular_word('me' + words[1])
+        if !@dictionary.contains?(first_match[2]) && root_second_word == first_match[2]
+          root_second_word = stem_singular_word('me' << first_match[2])
         end
 
         if root_first_word == root_second_word
