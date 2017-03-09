@@ -460,4 +460,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem plural words' do
+    plural_words = %w[buku-buku berbalas-balasan bolak-balik]
+    base_form = %w[buku balas bolak-balik]
+    stemming_result = []
+
+    plural_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
