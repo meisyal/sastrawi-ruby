@@ -472,4 +472,19 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem combination of prefix and suffix' do
+    combination_prefix_suffix_words = %w[
+      bertebaran terasingkan membangunkan mencintai
+      menduakan menjauhi menggilai pembangunan
+    ]
+    base_form = %w[tebar asing bangun cinta dua jauh gila bangun]
+    stemming_result = []
+
+    combination_prefix_suffix_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
