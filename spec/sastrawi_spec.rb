@@ -487,4 +487,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'shouldn\'t stem words that are not in the dictionary' do
+    words = %w[marwan subarkah]
+    base_form = %w[marwan subarkah]
+    stemming_result = []
+
+    words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
