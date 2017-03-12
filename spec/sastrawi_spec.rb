@@ -499,4 +499,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should recursively remove prefix' do
+    words = %w[memberdayakan persemakmuran keberuntunganmu kesepersepuluhnya]
+    base_form = %w[daya makmur untung sepuluh]
+    stemming_result = []
+
+    words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
