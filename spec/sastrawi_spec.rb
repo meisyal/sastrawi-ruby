@@ -511,4 +511,11 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem a sentence' do
+    sentence = 'siapakah memberdayakan pembangunan'
+    base_form = 'siapa daya bangun'
+
+    expect(Sastrawi.stem(sentence)).to eq(base_form)
+  end
 end
