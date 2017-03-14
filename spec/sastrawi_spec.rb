@@ -518,4 +518,11 @@ describe Sastrawi do
 
     expect(Sastrawi.stem(sentence)).to eq(base_form)
   end
+
+  it 'should stem multiple sentences' do
+    sentences = 'Cinta telah bertebaran. Keduanya saling mencintai.'
+    base_form = 'cinta telah tebar dua saling cinta'
+
+    expect(Sastrawi.stem(sentences)).to eq(base_form)
+  end
 end
