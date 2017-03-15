@@ -525,4 +525,16 @@ describe Sastrawi do
 
     expect(Sastrawi.stem(sentences)).to eq(base_form)
   end
+
+  it 'should stem the issue' do
+    words = %w[Perekonomian menahan peranan memberikan medannya]
+    base_form = %w[ekonomi tahan peran beri medan]
+    stemming_result = []
+
+    words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
