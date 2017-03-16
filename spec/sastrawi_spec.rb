@@ -537,4 +537,16 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem adopted foreign suffixes' do
+    adopted_foreign_suffix_words = %w[idealis idealisme finalisasi]
+    base_form = %w[ideal ideal final]
+    stemming_result = []
+
+    adopted_foreign_suffix_words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
