@@ -549,4 +549,23 @@ describe Sastrawi do
 
     expect((base_form - stemming_result).empty?).to eq(true)
   end
+
+  it 'should stem additional rules of sastrawi' do
+    words = %w[
+      penstabilan pentranskripsi mentaati meniru-nirukan menyepak-nyepak
+      melewati menganga kupukul kauhajar kuasa-Mu malaikat-malaikat-Nya
+      nikmat-Ku allah-lah
+    ]
+    base_form = %w[
+      stabil transkripsi taat tiru sepak lewat nganga
+      pukul hajar kuasa malaikat nikmat allah
+    ]
+    stemming_result = []
+
+    words.each do |word|
+      stemming_result.push(Sastrawi.stem(word))
+    end
+
+    expect((base_form - stemming_result).empty?).to eq(true)
+  end
 end
