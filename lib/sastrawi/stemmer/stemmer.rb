@@ -46,19 +46,21 @@ module Sastrawi
 
         return word unless first_match
 
-        suffix = first_match[2]
-        suffixes = ['ku', 'mu', 'nya', 'lah', 'kah', 'tah', 'pun']
-        second_match = /^(.*)-(.*)$/.match(first_match[1])
+        words = [first_match[1], first_match[2]]
+        suffix = words[1]
+        suffixes = %w[ku mu nya lah kah tah pun]
+        second_match = /^(.*)-(.*)$/.match(words[0])
 
         if suffixes.include?(suffix) && second_match
-          first_match[2] = first_match[2] << '-' << suffix
+          words[0] = first_match[1]
+          words[1] = first_match[2] << '-' << suffix
         end
 
-        root_first_word = stem_singular_word(first_match[1])
-        root_second_word = stem_singular_word(first_match[2])
+        root_first_word = stem_singular_word(words[0])
+        root_second_word = stem_singular_word(words[0])
 
-        if !@dictionary.contains?(first_match[2]) && root_second_word == first_match[2]
-          root_second_word = stem_singular_word('me' << first_match[2])
+        if !@dictionary.contains?(words[1]) && root_second_word == words[1]
+          root_second_word = stem_singular_word('me' << words[1])
         end
 
         if root_first_word == root_second_word
