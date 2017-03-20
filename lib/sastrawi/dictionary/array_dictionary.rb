@@ -28,6 +28,10 @@ module Sastrawi
 
         @words.push(word)
       end
+
+      def remove(word)
+        @words.delete(word)
+      end
     end
   end
 end
