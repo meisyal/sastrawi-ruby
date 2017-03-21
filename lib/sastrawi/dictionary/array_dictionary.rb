@@ -29,6 +29,18 @@ module Sastrawi
         @words.push(word)
       end
 
+      def add_words_from_text_file(file_path)
+        words = []
+
+        File.open(file_path, 'r') do |file|
+          file.each do |line|
+            words.push(line.chomp)
+          end
+        end
+
+        add_words(words)
+      end
+
       def remove(word)
         @words.delete(word)
       end
