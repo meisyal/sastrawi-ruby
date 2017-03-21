@@ -1,8 +1,8 @@
 require 'sastrawi/dictionary/array_dictionary'
+
 require 'sastrawi/stemmer/cached_stemmer'
 require 'sastrawi/stemmer/stemmer'
 require 'sastrawi/stemmer/cache/array_cache'
-
 
 module Sastrawi
   module Stemmer

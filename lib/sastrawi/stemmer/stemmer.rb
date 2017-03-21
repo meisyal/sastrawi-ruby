@@ -1,5 +1,7 @@
 require 'sastrawi/stemmer/context/context'
+
 require 'sastrawi/stemmer/context/visitor/visitor_provider'
+
 require 'sastrawi/stemmer/filter/text_normalizer'
 
 module Sastrawi
