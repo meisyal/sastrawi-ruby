@@ -30,7 +30,7 @@ module Sastrawi
 
       def get_words_from_file
         root_directory = File.expand_path('../../../..', __FILE__)
-        dictionary_file_path = File.join(root_directory, 'data/kata-dasar.txt')
+        dictionary_file_path = File.join(root_directory, 'data/base-word.txt')
 
         dictionary_content = []
         File.open(dictionary_file_path, 'r') do |file|
