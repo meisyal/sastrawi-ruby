@@ -11,6 +11,22 @@ module Sastrawi
         stemmer_factory.create_stemmer
       end
 
+      let :extra_dictionary do
+        stemmer_factory.create_default_dictionary
+      end
+
+      let :additional_word do
+        'internet'
+      end
+
+      let :stemmer_with_extra_dictionary do
+        Stemmer.new(extra_dictionary)
+      end
+
+      def add_word_to_dictionary(dictionary, words)
+        dictionary.add(words)
+      end
+
       context 'with default dictionary' do
         it 'should not stem short words' do
           short_words = %w[mei bui]
@@ -65,7 +81,10 @@ module Sastrawi
         end
 
         it 'should stem combination of suffixes' do
-          suffixed_words = %w[bukumukah miliknyalah kulitkupun berikanku sakitimu beriannya kasihilah]
+          suffixed_words = %w[
+            bukumukah miliknyalah kulitkupun berikanku
+            sakitimu beriannya kasihilah
+          ]
           base_form = %w[buku milik kulit beri sakit beri kasih]
           stemming_result = []
 
@@ -393,7 +412,10 @@ module Sastrawi
         end
 
         it 'should stem adjusting rule precedence' do
-          adjusting_rule_precedence_words = %w[bersekolah bertahan mencapai dimulai petani terabai]
+          adjusting_rule_precedence_words = %w[
+            bersekolah bertahan mencapai
+            dimulai petani terabai
+          ]
           base_form = %w[sekolah tahan capai mulai tani abai]
           stemming_result = []
 
@@ -406,8 +428,8 @@ module Sastrawi
 
         it 'should stem enhanced confix stripping' do
           enhanced_confix_stripping_words = %w[
-        mensyaratkan mensyukuri mengebom mempromosikan
-        memproteksi memprediksi pengkajian pengembom
+            mensyaratkan mensyukuri mengebom mempromosikan
+            memproteksi memprediksi pengkajian pengembom
           ]
           base_form = %w[syarat syukur bom promosi proteksi prediksi kaji bom]
           stemming_result = []
@@ -421,14 +443,14 @@ module Sastrawi
 
         it 'should stem loop last return of enhanced confix stripping' do
           loop_last_return_enhanced_confix_stripping_words = %w[
-        bersembunyi bersembunyilah pelanggan pelaku
-        pelangganmukah pelakunyalah perbaikan kebaikannya
-        bisikan menerangi berimanlah memuaskan
-        berpelanggan bermakanan
+            bersembunyi bersembunyilah pelanggan pelaku
+            pelangganmukah pelakunyalah perbaikan kebaikannya
+            bisikan menerangi berimanlah memuaskan
+            berpelanggan bermakanan
           ]
           base_form = %w[
-        sembunyi sembunyi langgan laku langgan laku baik
-        baik bisik terang iman puas langgan makan
+            sembunyi sembunyi langgan laku langgan laku baik
+            baik bisik terang iman puas langgan makan
           ]
           stemming_result = []
 
@@ -441,8 +463,8 @@ module Sastrawi
 
         it 'should stem modified enhanced confix stripping' do
           modified_enhanced_confix_stripping_words = %w[
-        menyala menyanyikan menyatakannya
-        penyanyi penyawaan
+            menyala menyanyikan menyatakannya
+            penyanyi penyawaan
           ]
           base_form = %w[nyala nyanyi nyata nyanyi nyawa]
           stemming_result = %w[]
@@ -456,7 +478,7 @@ module Sastrawi
 
         it 'should stem modified enhanced confix stripping with infix' do
           infix_modified_enhanced_confix_stripping_words = %w[
-        rerata lelembut lemigas kinerja
+            rerata lelembut lemigas kinerja
           ]
           base_form = %w[rata lembut ligas kerja]
           stemming_result = []
@@ -482,8 +504,8 @@ module Sastrawi
 
         it 'should stem combination of prefix and suffix' do
           combination_prefix_suffix_words = %w[
-        bertebaran terasingkan membangunkan mencintai
-        menduakan menjauhi menggilai pembangunan
+            bertebaran terasingkan membangunkan mencintai
+            menduakan menjauhi menggilai pembangunan
           ]
           base_form = %w[tebar asing bangun cinta dua jauh gila bangun]
           stemming_result = []
@@ -559,13 +581,13 @@ module Sastrawi
 
         it 'should stem additional rules of sastrawi' do
           words = %w[
-        penstabilan pentranskripsi mentaati meniru-nirukan menyepak-nyepak
-        melewati menganga kupukul kauhajar kuasa-Mu malaikat-malaikat-Nya
-        nikmat-Ku allah-lah
+            penstabilan pentranskripsi mentaati meniru-nirukan menyepak-nyepak
+            melewati menganga kupukul kauhajar kuasa-Mu malaikat-malaikat-Nya
+            nikmat-Ku allah-lah
           ]
           base_form = %w[
-        stabil transkripsi taat tiru sepak lewat nganga
-        pukul hajar kuasa malaikat nikmat allah
+            stabil transkripsi taat tiru sepak lewat nganga
+            pukul hajar kuasa malaikat nikmat allah
           ]
           stemming_result = []
 
@@ -574,6 +596,14 @@ module Sastrawi
           end
 
           expect((base_form - stemming_result).empty?).to eq(true)
+        end
+      end
+
+      context 'with extra dictionary' do
+        it 'should stem word that has been added to dictionary' do
+          add_word_to_dictionary(extra_dictionary, additional_word)
+
+          expect(stemmer_with_extra_dictionary.stem('internetan')).to eq('internet')
         end
       end
     end
