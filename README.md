@@ -69,7 +69,8 @@ dictionary.remove('desa')
 # stem a word, "internetan", for example
 stemmer = Sastrawi::Stemmer::Stemmer.new(dictionary)
 
-puts stemmer.stem('internetan)
+# the stemming result should be "internet"
+puts stemmer.stem('internetan')
 ```
 
 ## Contributing
