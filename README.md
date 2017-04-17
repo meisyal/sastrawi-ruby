@@ -6,7 +6,9 @@ written in PHP and this library is written in Ruby language.
 
 Taken from [Wikipedia][stemmingwiki], stemming is the process of reducing
 inflected (or sometimes derived) words to their word stem, base or root form.
-For instance, "menahan" has "tahan" as its base form.
+For instance, "menahan" has "tahan" as its base form. If you want to know how
+stemming works, please read this [page][howstemmingworks] (in Bahasa Indonesia)
+for further details.
 
 ## Documentation
 
@@ -88,6 +90,7 @@ Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 
 [sastrawi]: https://github.com/sastrawi/sastrawi
 [stemmingwiki]: https://en.wikipedia.org/wiki/Stemming
+[howstemmingworks]: https://github.com/sastrawi/sastrawi/wiki/Stemming-Bahasa-Indonesia
 [documentation]: https://github.com/meisyal/sastrawi-ruby/wiki
 [issue]: https://github.com/meisyal/sastrawi-ruby/issues
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
