@@ -12,7 +12,7 @@ module Sastrawi
         stop_words = []
 
         words.each do |word|
-          unless @dictionary.include?(word)
+          unless @dictionary.contains?(word)
             stop_words.push(word)
           end
         end
