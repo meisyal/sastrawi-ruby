@@ -14,7 +14,7 @@ module Sastrawi
 
         it 'should be null' do
           ['teracun', 'terperuk'].each do |word|
-            expect(disambiguator_prefix_rule8.disambiguate(word)).to eq(nil)
+            expect(disambiguator_prefix_rule8.disambiguate(word)).to be_nil
           end
         end
       end

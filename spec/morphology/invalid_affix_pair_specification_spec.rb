@@ -19,13 +19,13 @@ module Sastrawi
 
       it 'should be false' do
         non_invalid_affix_pair_words.each do |word|
-          expect(invalid_affix_pair_specification.satisfied_by?(word)).to eq(false)
+          expect(invalid_affix_pair_specification.satisfied_by?(word)).to be false
         end
       end
 
       it 'should be true' do
         invalid_affix_pair_words.each do |word|
-          expect(invalid_affix_pair_specification.satisfied_by?(word)).to eq(true)
+          expect(invalid_affix_pair_specification.satisfied_by?(word)).to be true
         end
       end
     end

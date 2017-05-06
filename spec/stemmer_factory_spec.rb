@@ -37,7 +37,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should not stem "nilai" to "nila"' do
@@ -53,7 +53,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem "-ku, -mu, -nya" suffixes' do
@@ -65,7 +65,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem "-i, -kan, -an" suffixes' do
@@ -77,7 +77,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem combination of suffixes' do
@@ -92,7 +92,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem plain prefix' do
@@ -104,7 +104,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem first rule of derivation prefixes' do
@@ -116,7 +116,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem second rule of derivation prefixes' do
@@ -140,7 +140,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem sixth rule of derivation prefixes' do
@@ -152,7 +152,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq (true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem seventh rule of derivation prefixes' do
@@ -176,7 +176,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq (true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem eleventh rule of derivation prefixes' do
@@ -188,7 +188,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem twelfth rule of derivation prefixes' do
@@ -200,7 +200,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem thirteenth rule of derivation prefixes' do
@@ -212,7 +212,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq (true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem fourteenth rule of derivation prefixes' do
@@ -224,7 +224,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem fifteenth rule of derivation prefixes' do
@@ -236,7 +236,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem sixteenth rule of derivation prefixes' do
@@ -248,7 +248,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem seventeenth rule of derivation prefixes' do
@@ -260,7 +260,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem eighteenth rule of derivation prefixes' do
@@ -280,7 +280,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem twenty-first rule of derivation prefixes' do
@@ -292,7 +292,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem twenty-third rule of derivation prefixes' do
@@ -312,7 +312,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem twenty-sixth rule of derivation prefixes' do
@@ -324,7 +324,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem twenty-eighth rule of derivation prefixes' do
@@ -336,7 +336,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem twenty-ninth rule of derivation prefixes' do
@@ -348,7 +348,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem thirtieth rule of derivation prefixes' do
@@ -360,7 +360,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem thirtieth-first rule of derivation prefixes' do
@@ -376,7 +376,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem thirtieth-fourth rule of derivation prefixes' do
@@ -396,7 +396,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem modified twelfth and sixteenth rules' do
@@ -408,7 +408,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem adjusting rule precedence' do
@@ -423,7 +423,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem enhanced confix stripping' do
@@ -438,7 +438,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem loop last return of enhanced confix stripping' do
@@ -458,7 +458,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem modified enhanced confix stripping' do
@@ -473,7 +473,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem modified enhanced confix stripping with infix' do
@@ -487,7 +487,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem plural words' do
@@ -499,7 +499,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem combination of prefix and suffix' do
@@ -514,7 +514,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'shouldn\'t stem words that are not in the dictionary' do
@@ -526,7 +526,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should recursively remove prefix' do
@@ -538,7 +538,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem a sentence' do
@@ -564,7 +564,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem adopted foreign suffixes' do
@@ -576,7 +576,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
 
         it 'should stem additional rules of sastrawi' do
@@ -595,7 +595,7 @@ module Sastrawi
             stemming_result.push(stemmer.stem(word))
           end
 
-          expect((base_form - stemming_result).empty?).to eq(true)
+          expect((base_form - stemming_result).empty?).to be true
         end
       end
 

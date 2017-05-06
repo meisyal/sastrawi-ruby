@@ -13,7 +13,7 @@ module Sastrawi
         end
 
         it 'should be null' do
-          expect(disambiguator_prefix_rule9.disambiguate('terperuk')).to eq(nil)
+          expect(disambiguator_prefix_rule9.disambiguate('terperuk')).to be_nil
         end
       end
     end

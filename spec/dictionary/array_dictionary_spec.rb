@@ -20,13 +20,13 @@ module Sastrawi
       end
 
       it 'should not contain "word"' do
-        expect(array_dictionary.contains?('word')).to eq(false)
+        expect(array_dictionary.contains?('word')).to be false
       end
 
       it 'should contain "word"' do
         add_word('word')
 
-        expect(array_dictionary.contains?('word')).to eq(true)
+        expect(array_dictionary.contains?('word')).to be true
       end
 
       it 'should count empty dictionary' do
