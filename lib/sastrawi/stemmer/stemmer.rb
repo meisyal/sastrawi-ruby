@@ -59,7 +59,7 @@ module Sastrawi
         end
 
         root_first_word = stem_singular_word(words[0])
-        root_second_word = stem_singular_word(words[0])
+        root_second_word = stem_singular_word(words[1])
 
         if !@dictionary.contains?(words[1]) && root_second_word == words[1]
           root_second_word = stem_singular_word('me' << words[1])
