@@ -429,7 +429,7 @@ module Sastrawi
         it 'should stem enhanced confix stripping' do
           enhanced_confix_stripping_words = %w[
             mensyaratkan mensyukuri mengebom mempromosikan
-            memproteksi memprediksi pengkajian pengembom
+            memproteksi memprediksi pengkajian pengebom
           ]
           base_form = %w[syarat syukur bom promosi proteksi prediksi kaji bom]
           stemming_result = []
