@@ -54,8 +54,8 @@ module Sastrawi
         second_match = /^(.*)-(.*)$/.match(words[0])
 
         if suffixes.include?(suffix) && second_match
-          words[0] = first_match[1]
-          words[1] = first_match[2] << '-' << suffix
+          words[0] = second_match[1]
+          words[1] = second_match[2] << '-' << suffix
         end
 
         root_first_word = stem_singular_word(words[0])
