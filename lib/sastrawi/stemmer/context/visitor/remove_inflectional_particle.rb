@@ -7,7 +7,7 @@ module Sastrawi
             result = remove(context.current_word)
 
             if result != context.current_word
-              removed_part = context.current_word.sub(result, '')
+              removed_part = context.current_word.sub(/#{Regexp.quote(result)}/, '')
 
               removal = Removal.new(self, context.current_word, result, removed_part, 'P')
 

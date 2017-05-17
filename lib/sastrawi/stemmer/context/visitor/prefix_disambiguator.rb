@@ -22,7 +22,7 @@ module Sastrawi
 
             return if result.nil?
 
-            removed_part = context.current_word.sub(result, '')
+            removed_part = context.current_word.sub(/#{Regexp.quote(result)}/, '')
 
             removal = Removal.new(self, context.current_word, result, removed_part, 'DP')
 
