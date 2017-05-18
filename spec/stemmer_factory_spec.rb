@@ -44,6 +44,7 @@ module Sastrawi
           expect(stemmer.stem('nilai')).to eq('nilai')
         end
 
+        # stem "apatah" failed
         it 'should stem "-lah, -kah, -tah, -pun" suffixes' do
           suffixed_words = %w[hancurlah benarkah apatah siapapun]
           base_form = %w[hancur benar apa siapa]
@@ -68,6 +69,7 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
+        # stem "belikan" failed
         it 'should stem "-i, -kan, -an" suffixes' do
           suffixed_words = %w[hantui belikan jualan]
           base_form = %w[hantu beli jual]
@@ -441,6 +443,7 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
+        # stem "menerangi, berimanlah, memuaskan" failed
         it 'should stem loop last return of enhanced confix stripping' do
           loop_last_return_enhanced_confix_stripping_words = %w[
             bersembunyi bersembunyilah pelanggan pelaku
@@ -476,6 +479,7 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
+        # stem "rerata, lelembut" failed
         it 'should stem modified enhanced confix stripping with infix' do
           infix_modified_enhanced_confix_stripping_words = %w[
             rerata lelembut lemigas kinerja
@@ -529,6 +533,7 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
+        # stem "kesepersepuluhnya" failed
         it 'should recursively remove prefix' do
           words = %w[memberdayakan persemakmuran keberuntunganmu kesepersepuluhnya]
           base_form = %w[daya makmur untung sepuluh]
@@ -567,6 +572,7 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
+        # stem "idealis, idealisme" failed
         it 'should stem adopted foreign suffixes' do
           adopted_foreign_suffix_words = %w[idealis idealisme finalisasi]
           base_form = %w[ideal ideal final]
