@@ -1,4 +1,5 @@
 require 'sastrawi/dictionary/array_dictionary'
+
 require 'sastrawi/stop_word_remover/stop_word_remover'
 
 module Sastrawi

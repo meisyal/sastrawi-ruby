@@ -6,7 +6,9 @@ written in PHP and this library is written in Ruby language.
 
 Taken from [Wikipedia][stemmingwiki], stemming is the process of reducing
 inflected (or sometimes derived) words to their word stem, base or root form.
-For instance, "menahan" has "tahan" as its base form.
+For instance, "menahan" has "tahan" as its base form. If you want to know how
+stemming works, please read this [page][howstemmingworks] (in Bahasa Indonesia)
+for further details.
 
 ## Documentation
 
@@ -33,27 +35,51 @@ on your system. I would recommend to choose the stable versions.
 
 ## Usage
 
-Currently, this library supports stemming words with provided base forms. You
-can't add or remove any base form. This feature will be implemented for next
-release.
+This library supports stemming words with provided base forms.
 
 ```ruby
 require 'sastrawi'
 
+# create stemmer
+stemmer_factory = Sastrawi::Stemmer::StemmerFactory.new
+stemmer = stemmer_factory.create_stemmer
+
 # prepare a sentence or words to be stemmed and call the stem API
 sentence = 'Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan.'
-stemming_result = Sastrawi.stem(sentence)
+stemming_result = stemmer.stem(sentence)
 
-# the stemming result should be "ekonomi indonesia sedang dalam tumbuh yang
-bangga"
+# the stemming result should be "ekonomi indonesia sedang dalam tumbuh yang bangga"
 puts stemming_result
+```
+
+Beside that, you can add or remove any base form.
+
+```ruby
+require 'sastrawi'
+
+# create stemmer
+stemmer_factory = Sastrawi::Stemmer::StemmerFactory.new
+
+# create default dictionary and add a text file that contains words into it
+dictionary = stemmer_factory.create_default_dictionary
+dictionary.add_words_from_text_file('my-dictionary.txt')
+
+# add or remove words
+dictionary.add('internet')
+dictionary.remove('desa')
+
+# stem a word, "internetan", for example
+stemmer = Sastrawi::Stemmer::Stemmer.new(dictionary)
+
+# the stemming result should be "internet"
+puts stemmer.stem('internetan')
 ```
 
 ## Contributing
 
-Contributions are welcome. If you find a bug, please report it to issue
-tracker. Use `dev` branch as a target of your feature branch for pull request.
-Both issue and pull request details should be written in English.
+Contributions are welcome. If you find a bug, please report it to [issue
+tracker][issue]. Use `dev` branch as a target of your feature branch for pull
+request. Both issue and pull request details must be written in English.
 
 ## License
 
@@ -64,7 +90,9 @@ Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 
 [sastrawi]: https://github.com/sastrawi/sastrawi
 [stemmingwiki]: https://en.wikipedia.org/wiki/Stemming
+[howstemmingworks]: https://github.com/sastrawi/sastrawi/wiki/Stemming-Bahasa-Indonesia
 [documentation]: https://github.com/meisyal/sastrawi-ruby/wiki
+[issue]: https://github.com/meisyal/sastrawi-ruby/issues
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
 [kateglo]: http://kateglo.com
 [kateglolicense]: https://creativecommons.org/licenses/by-nc-sa/3.0/

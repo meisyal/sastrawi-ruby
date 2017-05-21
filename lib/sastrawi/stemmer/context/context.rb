@@ -4,7 +4,8 @@ module Sastrawi
   module Stemmer
     module Context
       class Context
-        attr_accessor :original_word, :current_word, :dictionary, :visitor_provider, :process_is_stopped, :removals, :visitors, :suffix_visitors, :prefix_visitors, :result
+        attr_reader :original_word, :dictionary, :visitor_provider, :visitors, :suffix_visitors, :prefix_visitors
+        attr_accessor :current_word, :process_is_stopped, :removals, :result
 
         def initialize(original_word, dictionary, visitor_provider)
             @original_word = original_word
@@ -14,10 +15,10 @@ module Sastrawi
 
             @process_is_stopped = false
             @removals = []
-            @visitors = []
-            @suffix_visitors = []
-            @prefix_visitors = []
-            @result = ''
+            @visitors = nil
+            @suffix_visitors = nil
+            @prefix_visitors = nil
+            @result = nil
 
             init_visitors
         end

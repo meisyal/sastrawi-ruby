@@ -1,11 +1,13 @@
 require 'sastrawi/stemmer/context/context'
+
 require 'sastrawi/stemmer/context/visitor/visitor_provider'
+
 require 'sastrawi/stemmer/filter/text_normalizer'
 
 module Sastrawi
   module Stemmer
     class Stemmer
-      attr_accessor :dictionary, :visitor_provider
+      attr_reader :dictionary, :visitor_provider
 
       def initialize(dictionary)
         @dictionary = dictionary
@@ -36,35 +38,31 @@ module Sastrawi
       def plural?(word)
         matches = /^(.*)-(ku|mu|nya|lah|kah|tah|pun)$/.match(word)
 
-        if matches
-          true
-        else
-          false
-        end
+        return matches[1].include?('-') if matches
+
+        return word.include?('-')
       end
 
       def stem_plural_word(word)
         first_match = /^(.*)-(.*)$/.match(word)
 
-        unless first_match
-          return word
-        end
+        return word unless first_match
 
-        words = [first_match.captures[0], first_match.captures[1]]
-
+        words = [first_match[1], first_match[2]]
         suffix = words[1]
-        suffixes = ['ku', 'mu', 'nya', 'lah', 'kah', 'tah', 'pun']
+        suffixes = %w[ku mu nya lah kah tah pun]
         second_match = /^(.*)-(.*)$/.match(words[0])
 
         if suffixes.include?(suffix) && second_match
-          words[1] = words[1] + '-' + suffix
+          words[0] = second_match[1]
+          words[1] = second_match[2] << '-' << suffix
         end
 
         root_first_word = stem_singular_word(words[0])
         root_second_word = stem_singular_word(words[1])
 
-        unless @dictionary.contains?(words[1]) && root_second_word == words[1]
-          root_second_word = stem_singular_word('me' + words[1])
+        if !@dictionary.contains?(words[1]) && root_second_word == words[1]
+          root_second_word = stem_singular_word('me' << words[1])
         end
 
         if root_first_word == root_second_word

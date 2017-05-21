@@ -9,7 +9,7 @@ module Sastrawi
             result = remove_suffix(context.current_word)
 
             if result != context.current_word
-              removed_part = context.current_word.sub(result, '')
+              removed_part = context.current_word.sub(/#{Regexp.quote(result)}/, '')
 
               removal = Sastrawi::Stemmer::Context::Removal.new(self, context.current_word, result, removed_part, 'DS')
 

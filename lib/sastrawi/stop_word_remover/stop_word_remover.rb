@@ -1,7 +1,7 @@
 module Sastrawi
   module StopWordRemover
     class StopWordRemover
-      attr_accessor :dictionary
+      attr_reader :dictionary
 
       def initialize(dictionary)
         @dictionary = dictionary
@@ -12,7 +12,7 @@ module Sastrawi
         stop_words = []
 
         words.each do |word|
-          unless @dictionary.include?(word)
+          unless @dictionary.contains?(word)
             stop_words.push(word)
           end
         end
