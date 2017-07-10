@@ -77,9 +77,8 @@ puts stemmer.stem('internetan')
 
 ## Contributing
 
-Contributions are welcome. If you find a bug, please report it to [issue
-tracker][issue]. Use `dev` branch as a target of your feature branch for pull
-request. Both issue and pull request details must be written in English.
+Contributions are welcome. Please, read [CONTRIBUTING][contributing]
+guidelines.
 
 ## License
 
@@ -92,7 +91,7 @@ Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 [stemmingwiki]: https://en.wikipedia.org/wiki/Stemming
 [howstemmingworks]: https://github.com/sastrawi/sastrawi/wiki/Stemming-Bahasa-Indonesia
 [documentation]: https://github.com/meisyal/sastrawi-ruby/wiki
-[issue]: https://github.com/meisyal/sastrawi-ruby/issues
+[contributing]: https://github/com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
 [kateglo]: http://kateglo.com
 [kateglolicense]: https://creativecommons.org/licenses/by-nc-sa/3.0/
