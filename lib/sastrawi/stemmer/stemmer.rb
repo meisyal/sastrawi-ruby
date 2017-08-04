@@ -4,6 +4,10 @@ require 'sastrawi/stemmer/context/visitor/visitor_provider'
 
 require 'sastrawi/stemmer/filter/text_normalizer'
 
+##
+# Indonesian Stemmer
+# Nazief & Adriani, CS Stemmer, ECS Stemmer, Improved ECS
+
 module Sastrawi
   module Stemmer
     class Stemmer
@@ -13,6 +17,9 @@ module Sastrawi
         @dictionary = dictionary
         @visitor_provider = Sastrawi::Stemmer::Context::Visitor::VisitorProvider.new
       end
+
+      ##
+      # Stem a string to its base form
 
       def stem(text)
         normalized_text = Sastrawi::Stemmer::Filter::TextNormalizer.normalize_text(text)
@@ -26,6 +33,9 @@ module Sastrawi
 
         stems.join(' ')
       end
+
+      ##
+      # Stem a word to its base form
 
       def stem_word(word)
         if plural?(word)
@@ -42,6 +52,11 @@ module Sastrawi
 
         return word.include?('-')
       end
+
+      ##
+      # Stem a plural word to its base form
+      # Asian J. (2007) "Effective Techniques for Indonesian Text Retrieval"
+      # page 76-77
 
       def stem_plural_word(word)
         first_match = /^(.*)-(.*)$/.match(word)
@@ -71,6 +86,9 @@ module Sastrawi
           word
         end
       end
+
+      ##
+      # Stem a singular word to its base form
 
       def stem_singular_word(word)
         context = Sastrawi::Stemmer::Context::Context.new(word, @dictionary, @visitor_provider)
