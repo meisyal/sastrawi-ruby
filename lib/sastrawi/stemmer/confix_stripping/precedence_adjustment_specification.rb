@@ -1,3 +1,8 @@
+##
+# Confix Stripping Rule Precendence Adjustment Specification
+# Asian J. (2007) "Effective Techniques for Indonesian Text Retrieval" page 78-79
+# http://researchbank.rmit.edu.au/eserv/rmit:6312/Asian.pdf
+
 module Sastrawi
   module Stemmer
     module ConfixStripping
