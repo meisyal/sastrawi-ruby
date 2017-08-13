@@ -1,5 +1,9 @@
 require 'sastrawi/stemmer/confix_stripping/precedence_adjustment_specification'
 
+##
+# Stemming context using Nazief and Adriani, Confix Stripping (CS),
+# Enhanced Confix Stripping (ECS), and Improved (ECS)
+
 module Sastrawi
   module Stemmer
     module Context
@@ -37,6 +41,9 @@ module Sastrawi
           @removals.push(removal)
         end
 
+        ##
+        # Execute stemming process
+
         def execute
           start_stemming_process
 
@@ -55,6 +62,10 @@ module Sastrawi
           return if @dictionary.contains?(@current_word)
 
           cs_precendence_adjustment_specification = Sastrawi::Stemmer::ConfixStripping::PrecedenceAdjustmentSpecification.new
+
+          ##
+          # Confix stripping
+          # try to remove prefix before suffix if the specification is met
 
           if cs_precendence_adjustment_specification.satisfied_by?(@original_word)
             remove_prefixes
@@ -77,6 +88,9 @@ module Sastrawi
 
           loop_last_return
         end
+
+        ##
+        # ECS loop last return
 
         def loop_last_return
           restore_prefix
@@ -147,9 +161,15 @@ module Sastrawi
           end
         end
 
+        ##
+        # Check whether the removed part is a suffix
+
         def suffix_removal?(removal)
           removal.affix_type == 'DS' || removal.affix_type == 'PP' || removal.affix_type == 'P'
         end
+
+        ##
+        # Restore prefix to proceed with ECS loop last return
 
         def restore_prefix
           @removals.each do |removal|
