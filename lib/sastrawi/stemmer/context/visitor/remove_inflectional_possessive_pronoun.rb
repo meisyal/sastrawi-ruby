@@ -1,3 +1,8 @@
+##
+# Remove inflectional possessive pronoun
+# Asian J. (2007) "Effective Techniques for Indonesia Text Retrieval" page 60
+# http://researchbank.rmit.edu.au/eserv/rmit:6312/Asian.pdf
+
 module Sastrawi
   module Stemmer
     module Context
@@ -15,6 +20,9 @@ module Sastrawi
               context.current_word = result
             end
           end
+
+          ##
+          # Remove inflectional possessive pronoun: ku|mu|nya|
 
           def remove(word)
             word.sub(/-*(ku|mu|nya)$/, '')
