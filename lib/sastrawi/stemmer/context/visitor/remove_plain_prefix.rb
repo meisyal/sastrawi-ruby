@@ -1,3 +1,8 @@
+##
+# Remove plain prefix
+# Asian J. (2007) "Effective Techniques for Indonesian Text Retrieval" page 61
+# http://researchbank.rmit.edu.au/eserv/rmit:6312/Asian.pdf
+
 module Sastrawi
   module Stemmer
     module Context
@@ -15,6 +20,9 @@ module Sastrawi
               context.current_word = result
             end
           end
+
+          ##
+          # Remove plain prefix: di|ke|se
 
           def remove(word)
             word.sub(/^(di|ke|se)/, '')
