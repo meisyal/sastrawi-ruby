@@ -7,6 +7,9 @@ module Sastrawi
         @dictionary = dictionary
       end
 
+      ##
+      # Remove stop words
+
       def remove(text)
         words = text.split(' ')
         stop_words = []
