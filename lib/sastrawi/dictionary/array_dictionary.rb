@@ -9,13 +9,22 @@ module Sastrawi
         add_words(words)
       end
 
+      ##
+      # Check whether a word is contained in the dictionary
+
       def contains?(word)
         @words.include?(word)
       end
 
+      ##
+      # Count how many words in the dictionary
+
       def count
         @words.length
       end
+
+      ##
+      # Add multiple words to the dictionary
 
       def add_words(new_words)
         new_words.each do |word|
@@ -23,11 +32,17 @@ module Sastrawi
         end
       end
 
+      ##
+      # Add a word to the dictionary
+
       def add(word)
         return if word == ''
 
         @words.push(word)
       end
+
+      ##
+      # Add words from a text file to the dictionary
 
       def add_words_from_text_file(file_path)
         words = []
@@ -40,6 +55,9 @@ module Sastrawi
 
         add_words(words)
       end
+
+      ##
+      # Remove a word from the dictionary
 
       def remove(word)
         @words.delete(word)

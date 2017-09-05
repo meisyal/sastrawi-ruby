@@ -4,7 +4,7 @@ require 'sastrawi/stop_word_remover/stop_word_remover'
 
 module Sastrawi
   module StopWordRemover
-    module StopWordRemoverFactory
+    class StopWordRemoverFactory
       def create_stop_word_remover
         stop_words = get_stop_word
 

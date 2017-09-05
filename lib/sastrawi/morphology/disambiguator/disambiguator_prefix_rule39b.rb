@@ -3,7 +3,7 @@ module Sastrawi
     module Disambiguator
       class DisambiguatorPrefixRule39b
         def disambiguate(word)
-          contains = /^([bcdfghjklmnpqstvwxyz])em([aiueo])(.*)$/.match(word)
+          contains = /^([bcdfghjklmnpqrstvwxyz])em([aiueo])(.*)$/.match(word)
 
           if contains
             matches = contains.captures

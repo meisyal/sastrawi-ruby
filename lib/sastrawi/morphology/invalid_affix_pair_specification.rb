@@ -1,3 +1,7 @@
+##
+# Asian J. (2007) "Effective Techniques for Indonesian Text Retrieval". page 26
+# http://researchbank.rmit.edu.au/eserv/rmit:6312/Asian.pdf
+
 module Sastrawi
   module Morphology
     class InvalidAffixPairSpecification

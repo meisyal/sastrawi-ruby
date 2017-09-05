@@ -5,6 +5,9 @@ require 'sastrawi/stemmer/stemmer'
 
 require 'sastrawi/stemmer/cache/array_cache'
 
+##
+# Stemmer factory helps creating a pre-configured stemmer
+
 module Sastrawi
   module Stemmer
     class StemmerFactory

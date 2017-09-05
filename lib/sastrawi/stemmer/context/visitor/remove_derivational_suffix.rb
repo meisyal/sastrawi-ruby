@@ -1,5 +1,10 @@
 require 'sastrawi/stemmer/context/removal'
 
+##
+# Remove derivational suffix
+# Asian J. (2007) "Effective Techniques for Indonesian Text Retrieval" page 61
+# http://researchbank.rmit.edu.au/eserv/rmit:6312/Asian.pdf
+
 module Sastrawi
   module Stemmer
     module Context
@@ -17,6 +22,10 @@ module Sastrawi
               context.current_word = result
             end
           end
+
+          ##
+          # Original rule: i|kan|an
+          # Added the adopted foreign suffix rule: is|isme|isasi
 
           def remove_suffix(word)
             word.sub(/(is|isme|isasi|i|kan|an)$/, '')
