@@ -1,4 +1,4 @@
-# Sastrawi Bindings for Ruby [![Build Status](https://travis-ci.org/meisyal/sastrawi-ruby.svg?branch=master)](https://travis-ci.org/meisyal/sastrawi-ruby)
+# Sastrawi Bindings for Ruby [![Build Status](https://travis-ci.org/meisyal/sastrawi-ruby.svg?branch=master)](https://travis-ci.org/meisyal/sastrawi-ruby) [![Gem Version](https://badge.fury.io/rb/sastrawi.svg)](https://badge.fury.io/rb/sastrawi)
 
 sastrawi-ruby is Ruby bindings for [Sastrawi][sastrawi], a library which allows you
 to stem words in Bahasa Indonesia. The original implementation of Sastrawi was
