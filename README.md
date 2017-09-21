@@ -91,7 +91,7 @@ Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 [stemmingwiki]: https://en.wikipedia.org/wiki/Stemming
 [howstemmingworks]: https://github.com/sastrawi/sastrawi/wiki/Stemming-Bahasa-Indonesia
 [documentation]: https://github.com/meisyal/sastrawi-ruby/wiki
-[contributing]: https://github/com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
+[contributing]: https://github.com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
 [kateglo]: http://kateglo.com
 [kateglolicense]: https://creativecommons.org/licenses/by-nc-sa/3.0/
