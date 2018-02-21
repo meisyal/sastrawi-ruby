@@ -10,6 +10,8 @@ For instance, "menahan" has "tahan" as its base form. If you want to know how
 stemming works, please read this [page][howstemmingworks] (in Bahasa Indonesia)
 for further details.
 
+The demo version of sastrawi-ruby can be accessed [here][demo].
+
 ## Documentation
 
 Documentation for this library is not available at this moment. But, you can
@@ -90,6 +92,7 @@ Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 [sastrawi]: https://github.com/sastrawi/sastrawi
 [stemmingwiki]: https://en.wikipedia.org/wiki/Stemming
 [howstemmingworks]: https://github.com/sastrawi/sastrawi/wiki/Stemming-Bahasa-Indonesia
+[demo]: https://sastrawi-ruby-demo.herokuapp.com
 [documentation]: https://github.com/meisyal/sastrawi-ruby/wiki
 [contributing]: https://github.com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
