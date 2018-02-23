@@ -10,6 +10,8 @@ For instance, "menahan" has "tahan" as its base form. If you want to know how
 stemming works, please read this [page][howstemmingworks] (in Bahasa Indonesia)
 for further details.
 
+## Demo
+
 The demo version of sastrawi-ruby can be accessed [here][demo].
 
 ## Documentation
