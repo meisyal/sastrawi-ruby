@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'sastrawi'
+
+stemmer_factory = Sastrawi::Stemmer::StemmerFactory.new
+stemmer = stemmer_factory.create_stemmer
+
+puts stemmer.stem(ARGV[0])
