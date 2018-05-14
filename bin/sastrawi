@@ -5,4 +5,10 @@ require 'sastrawi'
 stemmer_factory = Sastrawi::Stemmer::StemmerFactory.new
 stemmer = stemmer_factory.create_stemmer
 
-puts stemmer.stem(ARGV[0])
+words = []
+
+ARGV.each { |arg| words << arg }
+
+sentence = words.join(' ')
+
+puts stemmer.stem(sentence)
