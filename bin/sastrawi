@@ -2,14 +2,14 @@
 
 require 'sastrawi'
 
-# usage: $ sastrawi sentence
+# usage: $ sastrawi word/sentence
 if ARGV.empty?
   puts '--------------- sastrawi: ERROR ---------------'
   puts 'Usage: Please specify a word or sentence to be stemmed.'
   puts '       sastrawi word/sentence'
   puts 'Example:'
   puts '       sastrawi mengundang'
-  puts '       sastrawi Perekonomian Indonesia sedang dalam pertumbuhan yang sangat membanggakan.'
+  puts '       sastrawi Perekonomian Indonesia sedang dalam pertumbuhan yang membanggakan.'
 else
   stemmer_factory = Sastrawi::Stemmer::StemmerFactory.new
   stemmer = stemmer_factory.create_stemmer
