@@ -1,4 +1,4 @@
-# Sastrawi Bindings for Ruby [![Build Status](https://travis-ci.org/meisyal/sastrawi-ruby.svg?branch=master)](https://travis-ci.org/meisyal/sastrawi-ruby)
+# Sastrawi Bindings for Ruby [![Build Status](https://travis-ci.org/meisyal/sastrawi-ruby.svg?branch=master)](https://travis-ci.org/meisyal/sastrawi-ruby) [![Gem Version](https://badge.fury.io/rb/sastrawi.svg)](https://badge.fury.io/rb/sastrawi)
 
 sastrawi-ruby is Ruby bindings for [Sastrawi][sastrawi], a library which allows you
 to stem words in Bahasa Indonesia. The original implementation of Sastrawi was
@@ -9,6 +9,10 @@ inflected (or sometimes derived) words to their word stem, base or root form.
 For instance, "menahan" has "tahan" as its base form. If you want to know how
 stemming works, please read this [page][howstemmingworks] (in Bahasa Indonesia)
 for further details.
+
+## Demo
+
+The demo version of sastrawi-ruby can be accessed [here][demo].
 
 ## Documentation
 
@@ -31,7 +35,7 @@ or you can install directly:
     gem install sastrawi
 
 Note that, this library requires Ruby. Ruby 1.9.3 or above should be installed
-on your system. I would recommend to choose the stable versions.
+on your system. I would recommend to use the stable versions.
 
 ## Usage
 
@@ -90,8 +94,9 @@ Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 [sastrawi]: https://github.com/sastrawi/sastrawi
 [stemmingwiki]: https://en.wikipedia.org/wiki/Stemming
 [howstemmingworks]: https://github.com/sastrawi/sastrawi/wiki/Stemming-Bahasa-Indonesia
+[demo]: https://sastrawi-ruby-demo.herokuapp.com
 [documentation]: https://github.com/meisyal/sastrawi-ruby/wiki
-[contributing]: https://github/com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
+[contributing]: https://github.com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
 [kateglo]: http://kateglo.com
 [kateglolicense]: https://creativecommons.org/licenses/by-nc-sa/3.0/
