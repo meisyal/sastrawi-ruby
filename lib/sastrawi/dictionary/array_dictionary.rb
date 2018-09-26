@@ -36,7 +36,7 @@ module Sastrawi
       # Add a word to the dictionary
 
       def add(word)
-        return if word.strip == ''
+        return if word.nil? || word == ''
 
         @words.push(word)
       end
