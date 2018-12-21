@@ -13,7 +13,7 @@ module Sastrawi
         end
 
         def get(key)
-          return @data[key.to_sym] if @data.key?(key.to_sym)
+          @data[key.to_sym] if @data.key?(key.to_sym)
         end
 
         def has?(key)

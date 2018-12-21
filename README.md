@@ -16,8 +16,8 @@ The demo version of sastrawi-ruby can be accessed [here][demo].
 
 ## Documentation
 
-Documentation for this library is not available at this moment. But, you can
-check [sastrawi-ruby GitHub Wiki][documentation] that contains TODO list.
+Documentation for this library is available on [here][documentation]. You can
+also check [sastrawi-ruby GitHub Wiki][wiki] that contains TODO list.
 
 ## Installation
 
@@ -28,14 +28,14 @@ Ruby bindings for Sastrawi, add this line to your application's Gemfile:
 
 and then execute:
 
-    bundle install
+    $ bundle install
 
 or you can install directly:
 
-    gem install sastrawi
+    $ gem install sastrawi
 
-Note that, this library requires Ruby. Ruby 1.9.3 or above should be installed
-on your system. I would recommend to use the stable versions.
+Note that, this library requires Ruby. Ruby 2.3 series or above should be
+installed on your system. I would recommend to use the stable versions.
 
 ## Usage
 
@@ -91,12 +91,14 @@ This library is released under the terms of MIT License. See the
 words from [Kateglo][kateglo] and it is licensed under a [Creative Commons
 Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 
+
 [sastrawi]: https://github.com/sastrawi/sastrawi
 [stemmingwiki]: https://en.wikipedia.org/wiki/Stemming
 [howstemmingworks]: https://github.com/sastrawi/sastrawi/wiki/Stemming-Bahasa-Indonesia
 [demo]: https://sastrawi-ruby-demo.herokuapp.com
-[documentation]: https://github.com/meisyal/sastrawi-ruby/wiki
+[documentation]: https://www.rubydoc.info/gems/sastrawi/
 [contributing]: https://github.com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
 [kateglo]: http://kateglo.com
 [kateglolicense]: https://creativecommons.org/licenses/by-nc-sa/3.0/
+[wiki]: https://github.com/meisyal/sastrawi-ruby/wiki

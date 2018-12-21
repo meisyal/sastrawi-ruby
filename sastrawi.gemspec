@@ -6,7 +6,7 @@ require 'sastrawi/version'
 Gem::Specification.new do |spec|
   spec.name          = "sastrawi"
   spec.version       = Sastrawi::VERSION
-  spec.required_ruby_version = ">= 1.9.3"
+  spec.required_ruby_version = ">= 2.3.8"
   spec.authors       = ["Andrias Meisyal"]
   spec.email         = ["andriasonline@gmail.com"]
 
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.16.1"
-  spec.add_development_dependency "rake", "~> 10.5.0"
-  spec.add_development_dependency "rspec", "~> 3.7.0"
+  spec.add_development_dependency "bundler", "~> 1.17.2"
+  spec.add_development_dependency "rake", "~> 12.3.2"
+  spec.add_development_dependency "rspec", "~> 3.8.0"
 end
