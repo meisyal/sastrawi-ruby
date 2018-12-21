@@ -6,7 +6,7 @@ require 'sastrawi/version'
 Gem::Specification.new do |spec|
   spec.name          = "sastrawi"
   spec.version       = Sastrawi::VERSION
-  spec.required_ruby_version = ">= 1.9.3"
+  spec.required_ruby_version = ">= 2.4.5"
   spec.authors       = ["Andrias Meisyal"]
   spec.email         = ["andriasonline@gmail.com"]
 
