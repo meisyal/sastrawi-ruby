@@ -34,7 +34,7 @@ or you can install directly:
 
     $ gem install sastrawi
 
-Note that, this library requires Ruby. Ruby 2.4 series or above should be
+Note that, this library requires Ruby. Ruby 2.3 series or above should be
 installed on your system. I would recommend to use the stable versions.
 
 ## Usage
