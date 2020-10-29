@@ -10,7 +10,7 @@ module Sastrawi
 
             return if matches[0] == 'r'
 
-            return matches[0] << matches[1] << 'er' << matches[2] << matches[3]
+            return "#{matches[0]}#{matches[1]}er#{matches[2]}#{matches[3]}"
           end
         end
       end

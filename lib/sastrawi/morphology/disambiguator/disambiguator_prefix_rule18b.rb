@@ -8,7 +8,7 @@ module Sastrawi
           if contains
             matches = contains.captures
 
-            return 's' << matches[0] << matches[1]
+            return "s#{matches[0]}#{matches[1]}"
           end
         end
       end

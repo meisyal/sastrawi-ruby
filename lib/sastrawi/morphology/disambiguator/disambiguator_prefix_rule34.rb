@@ -10,7 +10,7 @@ module Sastrawi
 
             return if /^er(.*)$/.match(matches[1])
 
-            return matches[0] << matches[1]
+            return "#{matches[0]}#{matches[1]}"
           end
         end
       end

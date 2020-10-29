@@ -103,12 +103,12 @@ module Sastrawi
             next unless suffix_removal?(reverse_removal)
 
             if reverse_removal.removed_part == 'kan'
-              @current_word = reverse_removal.result << 'k'
+              @current_word = "#{reverse_removal.result}k"
 
               remove_prefixes
               return if @dictionary.contains?(@current_word)
 
-              @current_word = reverse_removal.result << 'kan'
+              @current_word = "#{reverse_removal.result}kan"
             else
               @current_word = reverse_removal.subject
             end
