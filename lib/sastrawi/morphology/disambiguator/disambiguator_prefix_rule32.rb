@@ -10,7 +10,7 @@ module Sastrawi
           if contains
             matches = contains.captures
 
-            return matches[0] << matches[1]
+            return "#{matches[0]}#{matches[1]}"
           end
         end
       end
