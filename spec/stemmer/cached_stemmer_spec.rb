@@ -44,7 +44,7 @@ module Sastrawi
 
       it 'should store the result to cache' do
         expect(cached_stemmer.stem('memakan makanan')).to eq('makan makan')
-        expect(cached_stemmer.get_cache('memakan')).to eq('makan')
+        expect(get_cache('memakan')).to eq('makan')
       end
     end
   end
