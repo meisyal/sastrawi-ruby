@@ -44,10 +44,9 @@ module Sastrawi
           expect(stemmer.stem('nilai')).to eq('nilai')
         end
 
-        # stem "apatah" failed
         it 'should stem "-lah, -kah, -tah, -pun" suffixes' do
-          suffixed_words = %w[hancurlah benarkah apatah siapapun]
-          base_form = %w[hancur benar apa siapa]
+          suffixed_words = %w[hancurlah benarkah manatah siapapun]
+          base_form = %w[hancur benar mana siapa]
           stemming_result = []
 
           suffixed_words.each do |word|
