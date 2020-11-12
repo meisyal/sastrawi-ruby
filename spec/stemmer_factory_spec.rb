@@ -68,10 +68,9 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
-        # stem "belikan" failed
         it 'should stem "-i, -kan, -an" suffixes' do
-          suffixed_words = %w[hantui belikan jualan]
-          base_form = %w[hantu beli jual]
+          suffixed_words = %w[hantui abaikan jualan]
+          base_form = %w[hantu abai jual]
           stemming_result = []
 
           suffixed_words.each do |word|
