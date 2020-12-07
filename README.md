@@ -99,6 +99,6 @@ Attribution-NonCommercial-ShareAlike 3.0 Unported License][kateglolicense].
 [documentation]: https://www.rubydoc.info/gems/sastrawi/
 [contributing]: https://github.com/meisyal/sastrawi-ruby/blob/master/CONTRIBUTING.md
 [license]: https://github.com/meisyal/sastrawi-ruby/blob/master/LICENSE.txt
-[kateglo]: http://kateglo.com
+[kateglo]: https://kateglo.com
 [kateglolicense]: https://creativecommons.org/licenses/by-nc-sa/3.0/
 [wiki]: https://github.com/meisyal/sastrawi-ruby/wiki
