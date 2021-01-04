@@ -11,7 +11,7 @@ module Sastrawi
         stemmer_factory.create_stemmer
       end
 
-      let :extra_dictionary do
+      let :custom_dictionary do
         stemmer_factory.create_default_dictionary
       end
 
@@ -19,12 +19,23 @@ module Sastrawi
         'internet'
       end
 
-      let :stemmer_with_extra_dictionary do
-        Stemmer.new(extra_dictionary)
+      # these words exist in custom dictionary (root words), so need to be removed
+      let :removed_words do
+        %w[apatah rerata lelembut idealis idealisme]
+      end
+
+      let :stemmer_with_custom_dictionary do
+        Stemmer.new(custom_dictionary)
       end
 
       def add_word_to_dictionary(dictionary, words)
         dictionary.add(words)
+      end
+
+      def remove_word_from_dictionary(dictionary, words)
+        words.each do |word|
+          dictionary.remove(word)
+        end
       end
 
       context 'with default dictionary' do
@@ -44,10 +55,9 @@ module Sastrawi
           expect(stemmer.stem('nilai')).to eq('nilai')
         end
 
-        # stem "apatah" failed
         it 'should stem "-lah, -kah, -tah, -pun" suffixes' do
-          suffixed_words = %w[hancurlah benarkah apatah siapapun]
-          base_form = %w[hancur benar apa siapa]
+          suffixed_words = %w[hancurlah benarkah manatah siapapun]
+          base_form = %w[hancur benar mana siapa]
           stemming_result = []
 
           suffixed_words.each do |word|
@@ -69,10 +79,9 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
-        # stem "belikan" failed
         it 'should stem "-i, -kan, -an" suffixes' do
-          suffixed_words = %w[hantui belikan jualan]
-          base_form = %w[hantu beli jual]
+          suffixed_words = %w[hantui abaikan jualan]
+          base_form = %w[hantu abai jual]
           stemming_result = []
 
           suffixed_words.each do |word|
@@ -479,12 +488,9 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
-        # stem "rerata, lelembut" failed
         it 'should stem modified enhanced confix stripping with infix' do
-          infix_modified_enhanced_confix_stripping_words = %w[
-            rerata lelembut lemigas kinerja
-          ]
-          base_form = %w[rata lembut ligas kerja]
+          infix_modified_enhanced_confix_stripping_words = %w[lemigas kinerja]
+          base_form = %w[ligas kerja]
           stemming_result = []
 
           infix_modified_enhanced_confix_stripping_words.each do |word|
@@ -572,10 +578,9 @@ module Sastrawi
           expect((base_form - stemming_result).empty?).to be true
         end
 
-        # stem "idealis, idealisme" failed
         it 'should stem adopted foreign suffixes' do
-          adopted_foreign_suffix_words = %w[idealis idealisme finalisasi]
-          base_form = %w[ideal ideal final]
+          adopted_foreign_suffix_words = %w[finalisasi]
+          base_form = %w[final]
           stemming_result = []
 
           adopted_foreign_suffix_words.each do |word|
@@ -605,11 +610,21 @@ module Sastrawi
         end
       end
 
-      context 'with extra dictionary' do
+      context 'with custom dictionary' do
         it 'should stem word that has been added to dictionary' do
-          add_word_to_dictionary(extra_dictionary, additional_word)
+          add_word_to_dictionary(custom_dictionary, additional_word)
 
-          expect(stemmer_with_extra_dictionary.stem('internetan')).to eq('internet')
+          expect(stemmer_with_custom_dictionary.stem('internetan')).to eq('internet')
+        end
+
+        it 'should stem word that has been removed from dictionary' do
+          remove_word_from_dictionary(custom_dictionary, removed_words)
+
+          expect(stemmer_with_custom_dictionary.stem('apatah')).to eq('apa')
+          expect(stemmer_with_custom_dictionary.stem('rerata')).to eq('rata')
+          expect(stemmer_with_custom_dictionary.stem('lelembut')).to eq('lembut')
+          expect(stemmer_with_custom_dictionary.stem('idealis')).to eq('ideal')
+          expect(stemmer_with_custom_dictionary.stem('idealisme')).to eq('ideal')
         end
       end
     end
