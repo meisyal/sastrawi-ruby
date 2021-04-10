@@ -8,7 +8,7 @@ module Sastrawi
           if contains
             matches = contains.captures
 
-            return 'ny' << matches[0] << matches[1]
+            return "ny#{matches[0]}#{matches[1]}"
           end
         end
       end
